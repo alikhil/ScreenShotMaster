@@ -1,0 +1,36 @@
+C:\Users\3228\Documents\Visual Studio 2013\Projects\ScreenShot Master\ScreenShot Master\bin\Release\ScreenShot Master.exe.config
+C:\Users\3228\Documents\Visual Studio 2013\Projects\ScreenShot Master\ScreenShot Master\bin\Release\ScreenShot Master.exe.manifest
+C:\Users\3228\Documents\Visual Studio 2013\Projects\ScreenShot Master\ScreenShot Master\bin\Release\ScreenShot Master.application
+C:\Users\3228\Documents\Visual Studio 2013\Projects\ScreenShot Master\ScreenShot Master\bin\Release\ScreenShot Master.exe
+C:\Users\3228\Documents\Visual Studio 2013\Projects\ScreenShot Master\ScreenShot Master\bin\Release\ScreenShot Master.pdb
+C:\Users\3228\Documents\Visual Studio 2013\Projects\ScreenShot Master\ScreenShot Master\obj\Release\ScreenShot_Master.AboutBox.resources
+C:\Users\3228\Documents\Visual Studio 2013\Projects\ScreenShot Master\ScreenShot Master\obj\Release\ScreenShot_Master.FImage.resources
+C:\Users\3228\Documents\Visual Studio 2013\Projects\ScreenShot Master\ScreenShot Master\obj\Release\ScreenShot_Master.FSettings.resources
+C:\Users\3228\Documents\Visual Studio 2013\Projects\ScreenShot Master\ScreenShot Master\obj\Release\ScreenShot_Master.MainForm.resources
+C:\Users\3228\Documents\Visual Studio 2013\Projects\ScreenShot Master\ScreenShot Master\obj\Release\ScreenShot_Master.Properties.Resources.resources
+C:\Users\3228\Documents\Visual Studio 2013\Projects\ScreenShot Master\ScreenShot Master\obj\Release\ScreenShot_Master.TakeAreaWindows.resources
+C:\Users\3228\Documents\Visual Studio 2013\Projects\ScreenShot Master\ScreenShot Master\obj\Release\ScreenShot Master.csproj.GenerateResource.Cache
+C:\Users\3228\Documents\Visual Studio 2013\Projects\ScreenShot Master\ScreenShot Master\obj\Release\ScreenShot Master.TrustInfo.xml
+C:\Users\3228\Documents\Visual Studio 2013\Projects\ScreenShot Master\ScreenShot Master\obj\Release\ScreenShot Master.exe.manifest
+C:\Users\3228\Documents\Visual Studio 2013\Projects\ScreenShot Master\ScreenShot Master\obj\Release\ScreenShot Master.application
+C:\Users\3228\Documents\Visual Studio 2013\Projects\ScreenShot Master\ScreenShot Master\obj\Release\ScreenShot Master.exe
+C:\Users\3228\Documents\Visual Studio 2013\Projects\ScreenShot Master\ScreenShot Master\obj\Release\ScreenShot Master.pdb
+C:\Users\3228\Documents\Visual Studio 2013\Projects\ScreenShot Master\ScreenShot Master\obj\Release\ScreenShot Master.csprojResolveAssemblyReference.cache
+C:\Users\admin\Documents\Visual Studio 2013\Projects\ScreenShot Master\ScreenShot Master\bin\Release\ScreenShot Master.exe.config
+C:\Users\admin\Documents\Visual Studio 2013\Projects\ScreenShot Master\ScreenShot Master\obj\Release\ScreenShot Master.exe
+C:\Users\admin\Documents\Visual Studio 2013\Projects\ScreenShot Master\ScreenShot Master\obj\Release\ScreenShot Master.pdb
+C:\Users\admin\Documents\Visual Studio 2013\Projects\ScreenShot Master\ScreenShot Master\obj\Release\ScreenShot Master.csprojResolveAssemblyReference.cache
+C:\Users\admin\Documents\Visual Studio 2013\Projects\ScreenShot Master\ScreenShot Master\obj\Release\ScreenShot_Master.AboutBox.resources
+C:\Users\admin\Documents\Visual Studio 2013\Projects\ScreenShot Master\ScreenShot Master\obj\Release\ScreenShot_Master.FImage.resources
+C:\Users\admin\Documents\Visual Studio 2013\Projects\ScreenShot Master\ScreenShot Master\obj\Release\ScreenShot_Master.FSettings.resources
+C:\Users\admin\Documents\Visual Studio 2013\Projects\ScreenShot Master\ScreenShot Master\obj\Release\ScreenShot_Master.MainForm.resources
+C:\Users\admin\Documents\Visual Studio 2013\Projects\ScreenShot Master\ScreenShot Master\obj\Release\ScreenShot_Master.Properties.Resources.resources
+C:\Users\admin\Documents\Visual Studio 2013\Projects\ScreenShot Master\ScreenShot Master\obj\Release\ScreenShot_Master.TakeAreaWindows.resources
+C:\Users\admin\Documents\Visual Studio 2013\Projects\ScreenShot Master\ScreenShot Master\obj\Release\ScreenShot Master.csproj.GenerateResource.Cache
+C:\Users\admin\Documents\Visual Studio 2013\Projects\ScreenShot Master\ScreenShot Master\bin\Release\ScreenShot Master.exe.manifest
+C:\Users\admin\Documents\Visual Studio 2013\Projects\ScreenShot Master\ScreenShot Master\bin\Release\ScreenShot Master.application
+C:\Users\admin\Documents\Visual Studio 2013\Projects\ScreenShot Master\ScreenShot Master\bin\Release\ScreenShot Master.exe
+C:\Users\admin\Documents\Visual Studio 2013\Projects\ScreenShot Master\ScreenShot Master\bin\Release\ScreenShot Master.pdb
+C:\Users\admin\Documents\Visual Studio 2013\Projects\ScreenShot Master\ScreenShot Master\obj\Release\ScreenShot Master.TrustInfo.xml
+C:\Users\admin\Documents\Visual Studio 2013\Projects\ScreenShot Master\ScreenShot Master\obj\Release\ScreenShot Master.exe.manifest
+C:\Users\admin\Documents\Visual Studio 2013\Projects\ScreenShot Master\ScreenShot Master\obj\Release\ScreenShot Master.application

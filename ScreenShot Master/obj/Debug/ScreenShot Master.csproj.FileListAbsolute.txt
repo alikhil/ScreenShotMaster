@@ -1,0 +1,7 @@
+C:\Users\3228\Documents\Visual Studio 2013\Projects\ScreenShot Master\ScreenShot Master\obj\Debug\ScreenShot_Master.AboutBox.resources
+C:\Users\3228\Documents\Visual Studio 2013\Projects\ScreenShot Master\ScreenShot Master\obj\Debug\ScreenShot_Master.FImage.resources
+C:\Users\3228\Documents\Visual Studio 2013\Projects\ScreenShot Master\ScreenShot Master\obj\Debug\ScreenShot_Master.FSettings.resources
+C:\Users\3228\Documents\Visual Studio 2013\Projects\ScreenShot Master\ScreenShot Master\obj\Debug\ScreenShot_Master.MainForm.resources
+C:\Users\3228\Documents\Visual Studio 2013\Projects\ScreenShot Master\ScreenShot Master\obj\Debug\ScreenShot_Master.TakeAreaWindows.resources
+C:\Users\3228\Documents\Visual Studio 2013\Projects\ScreenShot Master\ScreenShot Master\obj\Debug\ScreenShot Master.csproj.GenerateResource.Cache
+C:\Users\admin\Documents\Visual Studio 2013\Projects\ScreenShot Master\ScreenShot Master\bin\Debug\ScreenShot Master.exe.config
