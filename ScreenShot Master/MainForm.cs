@@ -184,6 +184,8 @@ namespace ScreenShot_Master
         {
             if (Settings.GetValue("HideInShot", "true") == "false")
                 return;
+            if (WindowState == FormWindowState.Minimized)
+                return;
             pos = (this.Location.X == -500.0 && this.Location.Y == -500.0) ? pos : this.Location;
             this.Location = new Point(-500, -500);
             moved = true;

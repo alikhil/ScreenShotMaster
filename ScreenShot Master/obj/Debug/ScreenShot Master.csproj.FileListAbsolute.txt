@@ -5,3 +5,21 @@ C:\Users\3228\Documents\Visual Studio 2013\Projects\ScreenShot Master\ScreenShot
 C:\Users\3228\Documents\Visual Studio 2013\Projects\ScreenShot Master\ScreenShot Master\obj\Debug\ScreenShot_Master.TakeAreaWindows.resources
 C:\Users\3228\Documents\Visual Studio 2013\Projects\ScreenShot Master\ScreenShot Master\obj\Debug\ScreenShot Master.csproj.GenerateResource.Cache
 C:\Users\admin\Documents\Visual Studio 2013\Projects\ScreenShot Master\ScreenShot Master\bin\Debug\ScreenShot Master.exe.config
+E:\GitFiles\ScreenShotMaster\ScreenShot Master\bin\Debug\ScreenShot Master.exe.config
+E:\GitFiles\ScreenShotMaster\ScreenShot Master\bin\Debug\ScreenShot Master.exe.manifest
+E:\GitFiles\ScreenShotMaster\ScreenShot Master\bin\Debug\ScreenShot Master.application
+E:\GitFiles\ScreenShotMaster\ScreenShot Master\bin\Debug\ScreenShot Master.exe
+E:\GitFiles\ScreenShotMaster\ScreenShot Master\bin\Debug\ScreenShot Master.pdb
+E:\GitFiles\ScreenShotMaster\ScreenShot Master\obj\Debug\ScreenShot Master.csprojResolveAssemblyReference.cache
+E:\GitFiles\ScreenShotMaster\ScreenShot Master\obj\Debug\ScreenShot_Master.AboutBox.resources
+E:\GitFiles\ScreenShotMaster\ScreenShot Master\obj\Debug\ScreenShot_Master.FImage.resources
+E:\GitFiles\ScreenShotMaster\ScreenShot Master\obj\Debug\ScreenShot_Master.FSettings.resources
+E:\GitFiles\ScreenShotMaster\ScreenShot Master\obj\Debug\ScreenShot_Master.MainForm.resources
+E:\GitFiles\ScreenShotMaster\ScreenShot Master\obj\Debug\ScreenShot_Master.Properties.Resources.resources
+E:\GitFiles\ScreenShotMaster\ScreenShot Master\obj\Debug\ScreenShot_Master.TakeAreaWindows.resources
+E:\GitFiles\ScreenShotMaster\ScreenShot Master\obj\Debug\ScreenShot Master.csproj.GenerateResource.Cache
+E:\GitFiles\ScreenShotMaster\ScreenShot Master\obj\Debug\ScreenShot Master.TrustInfo.xml
+E:\GitFiles\ScreenShotMaster\ScreenShot Master\obj\Debug\ScreenShot Master.exe.manifest
+E:\GitFiles\ScreenShotMaster\ScreenShot Master\obj\Debug\ScreenShot Master.application
+E:\GitFiles\ScreenShotMaster\ScreenShot Master\obj\Debug\ScreenShot Master.exe
+E:\GitFiles\ScreenShotMaster\ScreenShot Master\obj\Debug\ScreenShot Master.pdb
