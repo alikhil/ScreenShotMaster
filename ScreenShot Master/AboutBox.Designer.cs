@@ -100,6 +100,7 @@
             this.labelVersion.TabIndex = 0;
             this.labelVersion.Text = "Версия";
             this.labelVersion.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.labelVersion.Click += new System.EventHandler(this.labelVersion_Click);
             // 
             // labelCopyright
             // 

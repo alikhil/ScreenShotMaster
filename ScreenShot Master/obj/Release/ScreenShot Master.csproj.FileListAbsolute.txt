@@ -34,3 +34,21 @@ C:\Users\admin\Documents\Visual Studio 2013\Projects\ScreenShot Master\ScreenSho
 C:\Users\admin\Documents\Visual Studio 2013\Projects\ScreenShot Master\ScreenShot Master\obj\Release\ScreenShot Master.TrustInfo.xml
 C:\Users\admin\Documents\Visual Studio 2013\Projects\ScreenShot Master\ScreenShot Master\obj\Release\ScreenShot Master.exe.manifest
 C:\Users\admin\Documents\Visual Studio 2013\Projects\ScreenShot Master\ScreenShot Master\obj\Release\ScreenShot Master.application
+E:\GitFiles\ScreenShotMaster\ScreenShot Master\bin\Release\ScreenShot Master.exe.config
+E:\GitFiles\ScreenShotMaster\ScreenShot Master\obj\Release\ScreenShot Master.exe
+E:\GitFiles\ScreenShotMaster\ScreenShot Master\obj\Release\ScreenShot Master.pdb
+E:\GitFiles\ScreenShotMaster\ScreenShot Master\bin\Release\ScreenShot Master.exe.manifest
+E:\GitFiles\ScreenShotMaster\ScreenShot Master\bin\Release\ScreenShot Master.application
+E:\GitFiles\ScreenShotMaster\ScreenShot Master\bin\Release\ScreenShot Master.exe
+E:\GitFiles\ScreenShotMaster\ScreenShot Master\bin\Release\ScreenShot Master.pdb
+E:\GitFiles\ScreenShotMaster\ScreenShot Master\obj\Release\ScreenShot Master.csprojResolveAssemblyReference.cache
+E:\GitFiles\ScreenShotMaster\ScreenShot Master\obj\Release\ScreenShot_Master.AboutBox.resources
+E:\GitFiles\ScreenShotMaster\ScreenShot Master\obj\Release\ScreenShot_Master.FImage.resources
+E:\GitFiles\ScreenShotMaster\ScreenShot Master\obj\Release\ScreenShot_Master.FSettings.resources
+E:\GitFiles\ScreenShotMaster\ScreenShot Master\obj\Release\ScreenShot_Master.MainForm.resources
+E:\GitFiles\ScreenShotMaster\ScreenShot Master\obj\Release\ScreenShot_Master.Properties.Resources.resources
+E:\GitFiles\ScreenShotMaster\ScreenShot Master\obj\Release\ScreenShot_Master.TakeAreaWindows.resources
+E:\GitFiles\ScreenShotMaster\ScreenShot Master\obj\Release\ScreenShot Master.csproj.GenerateResource.Cache
+E:\GitFiles\ScreenShotMaster\ScreenShot Master\obj\Release\ScreenShot Master.TrustInfo.xml
+E:\GitFiles\ScreenShotMaster\ScreenShot Master\obj\Release\ScreenShot Master.exe.manifest
+E:\GitFiles\ScreenShotMaster\ScreenShot Master\obj\Release\ScreenShot Master.application
