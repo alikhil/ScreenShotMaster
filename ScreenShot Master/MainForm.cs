@@ -201,6 +201,7 @@ namespace ScreenShot_Master
             {
                 FormOut();
                 TakeAreaWindows t = new TakeAreaWindows();
+                SH.ScreenShotDoing = true;
                 t.ShowDialog();
                 SH.ScreenShot(Settings.GetSH_Settings(), new Shot_Setting(Screen.PrimaryScreen, t.ReturnRectangle.Size, t.ReturnRectangle.Location));
                 pictureBox.Image = (SH.LastImage != null) ? SH.LastImage : pictureBox.Image;

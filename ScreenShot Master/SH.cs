@@ -52,17 +52,18 @@ namespace SreenShotClass
         /// </summary>
         public static void ScreenShot()
         {
-            ScreenShotDoing = true;
             SH_Settings settings = new SH_Settings();
             Shot_Setting shotSet = new Shot_Setting();
             ScreenShot(settings, shotSet);
-            ScreenShotDoing = false;
         }
         public static void ScreenShot(SH_Settings settings, Shot_Setting shotSet)
         {
             ScreenShotDoing = true;
             if (shotSet.Size == Size.Empty)
+            {
+                ScreenShotDoing = false;
                 return;
+            }
             Bitmap printscreen = new Bitmap(shotSet.Size.Width, shotSet.Size.Height);   //создаём картинку сзаданным размером
             Graphics graphics = Graphics.FromImage(printscreen as Image);
             graphics.CopyFromScreen(shotSet.StartPoint, new Point(0, 0), shotSet.Size);
