@@ -13,6 +13,7 @@ using System.Runtime.InteropServices;
 using System.Diagnostics;
 using System.Windows.Forms;
 using System.Xml.Linq;
+using SreenShotClass;
 namespace ScreenShot_Master
 {
     public static class ResourceExtensions
@@ -73,6 +74,7 @@ namespace ScreenShot_Master
                     string ans = (string)xDocument.Root.Element("original_image");
                     MessageBox.Show("Изображение загружено  " + ans + ". Ссылка скопирована в буфер обмена", "ScreenShot Master", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                     Clipboard.SetText(ans);
+                    SH.LastImageUrl = ans;
                 }
             }
             catch (System.Exception ex)

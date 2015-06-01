@@ -42,14 +42,15 @@ namespace SreenShotClass
             public int Right;
             public int Bottom;
         }
-        public Image LastImage;
-        public string LastPath;
+        public static Image LastImage { get; set; }
+        public static string LastImageUrl { get; set; }
+        public static string LastPath { get; set; }
 
-        public bool ScreenShotDoing { get; set; }
+        public static  bool ScreenShotDoing { get; set; }
         /// <summary>
         /// Makes Fullscreen shot
         /// </summary>
-        public void ScreenShot()
+        public static void ScreenShot()
         {
             ScreenShotDoing = true;
             SH_Settings settings = new SH_Settings();
@@ -57,7 +58,7 @@ namespace SreenShotClass
             ScreenShot(settings, shotSet);
             ScreenShotDoing = false;
         }
-        public void ScreenShot(SH_Settings settings, Shot_Setting shotSet)
+        public static void ScreenShot(SH_Settings settings, Shot_Setting shotSet)
         {
             ScreenShotDoing = true;
             if (shotSet.Size == Size.Empty)
@@ -74,14 +75,15 @@ namespace SreenShotClass
             printscreen.Save(lpath, settings.ImageFormat);  //сохраняем картинку
             //MainForm.ActiveForm.Visible = true;
             ScreenShotDoing = false;
+            LastImageUrl = null;
         }
-        public void ScreenShot(string filepath, ImageFormat imf, Size size, Point startPoint, Screen screen)
+        public static void ScreenShot(string filepath, ImageFormat imf, Size size, Point startPoint, Screen screen)
         {
             SH_Settings settings = new SH_Settings(filepath, imf);
             Shot_Setting shotSet = new Shot_Setting(screen, size, startPoint);
             ScreenShot(settings, shotSet);
         }
-        public void ScreenShotCurrentWindow(SH_Settings settings)
+        public static  void ScreenShotCurrentWindow(SH_Settings settings)
         {
             IntPtr handle = GetForegroundWindow();
             RECT rect = new RECT();

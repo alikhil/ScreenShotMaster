@@ -126,6 +126,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="QRCoder.cs" />
     <Compile Include="Settings.cs" />
     <Compile Include="SH.cs" />
     <Compile Include="SH_Settings.cs" />

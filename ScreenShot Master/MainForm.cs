@@ -23,7 +23,6 @@ namespace ScreenShot_Master
 {
     public partial class MainForm : Form
     {
-        public SH sh;
         public  CultureInfo originalCulture = Thread.CurrentThread.CurrentCulture;
         Point pos;
         bool moved;
@@ -32,7 +31,6 @@ namespace ScreenShot_Master
             
             InitializeComponent();
             InitSettings();
-            sh =  new SH();
 
         }
         private void CheckUpdate()
@@ -158,7 +156,7 @@ namespace ScreenShot_Master
             s.ShowDialog();
             Rectangle r = s.ReturnRectangle;
             this.Text = String.Format("x = {0},y = {1},width = {2},height{3}", r.X, r.Y, r.Width, r.Height); 
-            sh.ScreenShot();
+            SH.ScreenShot();
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -175,8 +173,8 @@ namespace ScreenShot_Master
         private void screenShotBtn_Click(object sender, EventArgs e)
         {
             FormOut();
-            sh.ScreenShot(Settings.GetSH_Settings(), new Shot_Setting());
-            pictureBox.Image = sh.LastImage;
+            SH.ScreenShot(Settings.GetSH_Settings(), new Shot_Setting());
+            pictureBox.Image = SH.LastImage;
             FormIn();
         }
 
@@ -199,13 +197,13 @@ namespace ScreenShot_Master
         }
         private void pictureBox_Click(object sender, EventArgs e)
         {
-            if (!sh.ScreenShotDoing)
+            if (!SH.ScreenShotDoing)
             {
                 FormOut();
                 TakeAreaWindows t = new TakeAreaWindows();
                 t.ShowDialog();
-                sh.ScreenShot(Settings.GetSH_Settings(), new Shot_Setting(Screen.PrimaryScreen, t.ReturnRectangle.Size, t.ReturnRectangle.Location));
-                pictureBox.Image = (sh.LastImage != null) ? sh.LastImage : pictureBox.Image;
+                SH.ScreenShot(Settings.GetSH_Settings(), new Shot_Setting(Screen.PrimaryScreen, t.ReturnRectangle.Size, t.ReturnRectangle.Location));
+                pictureBox.Image = (SH.LastImage != null) ? SH.LastImage : pictureBox.Image;
                 this.Visible = true;
                 FormIn();
             }
@@ -264,7 +262,7 @@ namespace ScreenShot_Master
 
         private void pictureBox_Click_1(object sender, EventArgs e)
         {
-            if (sh.LastImage == null)
+            if (SH.LastImage == null)
                 return;
             FImage fim = new FImage(pictureBox.Image);
             fim.ShowDialog();
@@ -273,7 +271,7 @@ namespace ScreenShot_Master
 
         private void showProp_Click(object sender, EventArgs e)
         {
-            AppProperties.ShowProperties(sh.LastPath);
+            AppProperties.ShowProperties(SH.LastPath);
         }
         protected override void WndProc(ref Message m)
         {
@@ -293,20 +291,20 @@ namespace ScreenShot_Master
         {
             if(Handle != SH.GetForegroundWindow())
                 FormOut();
-            sh.ScreenShotCurrentWindow(Settings.GetSH_Settings());
-            pictureBox.Image = (sh.LastImage != null) ? sh.LastImage : pictureBox.Image;
+            SH.ScreenShotCurrentWindow(Settings.GetSH_Settings());
+            pictureBox.Image = (SH.LastImage != null) ? SH.LastImage : pictureBox.Image;
             FormIn();
         }
 
         private void открытьВPaintToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (sh.LastPath == null)
+            if (SH.LastPath == null)
                 return;
             try
             {
                 System.Diagnostics.ProcessStartInfo procInfo = new System.Diagnostics.ProcessStartInfo();
                 procInfo.FileName = ("mspaint.exe");
-                procInfo.Arguments = sh.LastPath; // Полный путь к изображению
+                procInfo.Arguments = SH.LastPath; // Полный путь к изображению
                 System.Diagnostics.Process.Start(procInfo);
             }
             catch { }
@@ -314,41 +312,41 @@ namespace ScreenShot_Master
 
         private void открытьToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (sh.LastPath == null)
+            if (SH.LastPath == null)
                 return;
             try
             {
-                System.Diagnostics.Process.Start(sh.LastPath);
+                System.Diagnostics.Process.Start(SH.LastPath);
             }
             catch { }
         }
 
         private void изображениеToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (sh.LastImage == null)
+            if (SH.LastImage == null)
                 return;
-            Clipboard.SetImage(sh.LastImage);
+            Clipboard.SetImage(SH.LastImage);
         }
 
         private void путьКФайлуToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (sh.LastPath == null)
+            if (SH.LastPath == null)
                 return;
-            Clipboard.SetText(sh.LastPath);
+            Clipboard.SetText(SH.LastPath);
         }
 
         private void файлToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (sh.LastPath == null)
+            if (SH.LastPath == null)
                 return;
             StringCollection col = new StringCollection();
-            col.Add(sh.LastPath);
+            col.Add(SH.LastPath);
             Clipboard.SetFileDropList(col);
         }
 
         private void UploadImageTSMI_Click(object sender, EventArgs e)
         {
-            Thread t = new Thread(delegate() { Helper.PostToImgur(new Bitmap(sh.LastImage)); });
+            Thread t = new Thread(delegate() { Helper.PostToImgur(new Bitmap(SH.LastImage)); });
             t.ApartmentState = ApartmentState.STA;
             t.Start();
         }
@@ -394,10 +392,10 @@ namespace ScreenShot_Master
 
         private void показатьПоследнийСкриншотToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if(sh.LastImage == null)
+            if(SH.LastImage == null)
                 return;
 
-            FImage fim = new FImage(sh.LastImage);
+            FImage fim = new FImage(SH.LastImage);
             fim.ShowDialog();
         }
 
@@ -430,7 +428,7 @@ namespace ScreenShot_Master
         private void MainForm_Move(object sender, EventArgs e)
         {
             //  прилипало
-            if (sh == null || (!sh.ScreenShotDoing && moved))
+            if (!SH.ScreenShotDoing && moved)
             {
                 int leapdist = 15;
                 if (this.Left < leapdist)
@@ -481,8 +479,25 @@ namespace ScreenShot_Master
 
         private void получитьСсылкуНаПоследнийСкриншотToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if(sh.LastImage != null)
+            if(SH.LastImage != null)
             UploadImageTSMI_Click(null, null);
+        }
+
+        private void qRкодНаСсылкуToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (!String.IsNullOrEmpty(SH.LastImageUrl))
+            {
+                QRCodeGenerator qrCodeGen = new QRCodeGenerator();
+                var code = qrCodeGen.CreateQrCode(SH.LastImageUrl, QRCodeGenerator.ECCLevel.Q);
+
+                var img = code.GetGraphic(20, Color.Black, Color.White);
+                FImage fim = new FImage(img);
+                fim.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Ссылка на изображение еще не получена. ", "Внимание!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
         }
     }
    

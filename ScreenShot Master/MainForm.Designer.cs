@@ -52,6 +52,7 @@
             this.настройкиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.выходToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.получитьСсылкуНаПоследнийСкриншотToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.qRкодНаСсылкуToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mainMenu.SuspendLayout();
             this.pictureContexMenuStip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
@@ -106,28 +107,29 @@
             this.открытьВPaintToolStripMenuItem,
             this.открытьToolStripMenuItem,
             this.получитьСсылкуToolStripMenuItem,
-            this.копироватьToolStripMenuItem});
+            this.копироватьToolStripMenuItem,
+            this.qRкодНаСсылкуToolStripMenuItem});
             this.pictureContexMenuStip.Name = "pictureContexMenuStip";
-            this.pictureContexMenuStip.Size = new System.Drawing.Size(172, 92);
+            this.pictureContexMenuStip.Size = new System.Drawing.Size(174, 136);
             // 
             // открытьВPaintToolStripMenuItem
             // 
             this.открытьВPaintToolStripMenuItem.Name = "открытьВPaintToolStripMenuItem";
-            this.открытьВPaintToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
+            this.открытьВPaintToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
             this.открытьВPaintToolStripMenuItem.Text = "Открыть в Paint";
             this.открытьВPaintToolStripMenuItem.Click += new System.EventHandler(this.открытьВPaintToolStripMenuItem_Click);
             // 
             // открытьToolStripMenuItem
             // 
             this.открытьToolStripMenuItem.Name = "открытьToolStripMenuItem";
-            this.открытьToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
+            this.открытьToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
             this.открытьToolStripMenuItem.Text = "Открыть";
             this.открытьToolStripMenuItem.Click += new System.EventHandler(this.открытьToolStripMenuItem_Click);
             // 
             // получитьСсылкуToolStripMenuItem
             // 
             this.получитьСсылкуToolStripMenuItem.Name = "получитьСсылкуToolStripMenuItem";
-            this.получитьСсылкуToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
+            this.получитьСсылкуToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
             this.получитьСсылкуToolStripMenuItem.Text = "Получить ссылку";
             this.получитьСсылкуToolStripMenuItem.Click += new System.EventHandler(this.UploadImageTSMI_Click);
             // 
@@ -138,7 +140,7 @@
             this.изображениеToolStripMenuItem,
             this.путьКФайлуToolStripMenuItem});
             this.копироватьToolStripMenuItem.Name = "копироватьToolStripMenuItem";
-            this.копироватьToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
+            this.копироватьToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
             this.копироватьToolStripMenuItem.Text = "Копировать";
             // 
             // файлToolStripMenuItem
@@ -221,7 +223,7 @@
             this.выходToolStripMenuItem,
             this.получитьСсылкуНаПоследнийСкриншотToolStripMenuItem});
             this.notifyContexMenu.Name = "notifyContexMenu";
-            this.notifyContexMenu.Size = new System.Drawing.Size(310, 114);
+            this.notifyContexMenu.Size = new System.Drawing.Size(310, 92);
             // 
             // показатьПоследнийСкриншотToolStripMenuItem
             // 
@@ -250,6 +252,13 @@
             this.получитьСсылкуНаПоследнийСкриншотToolStripMenuItem.Size = new System.Drawing.Size(309, 22);
             this.получитьСсылкуНаПоследнийСкриншотToolStripMenuItem.Text = "Получить ссылку на последний скриншот";
             this.получитьСсылкуНаПоследнийСкриншотToolStripMenuItem.Click += new System.EventHandler(this.получитьСсылкуНаПоследнийСкриншотToolStripMenuItem_Click);
+            // 
+            // qRкодНаСсылкуToolStripMenuItem
+            // 
+            this.qRкодНаСсылкуToolStripMenuItem.Name = "qRкодНаСсылкуToolStripMenuItem";
+            this.qRкодНаСсылкуToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
+            this.qRкодНаСсылкуToolStripMenuItem.Text = "QR-код на ссылку";
+            this.qRкодНаСсылкуToolStripMenuItem.Click += new System.EventHandler(this.qRкодНаСсылкуToolStripMenuItem_Click);
             // 
             // MainForm
             // 
@@ -309,6 +318,7 @@
         private System.Windows.Forms.ToolStripMenuItem настройкиToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem показатьПоследнийСкриншотToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem получитьСсылкуНаПоследнийСкриншотToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem qRкодНаСсылкуToolStripMenuItem;
     }
 }
 
