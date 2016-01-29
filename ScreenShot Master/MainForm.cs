@@ -89,27 +89,27 @@ namespace ScreenShot_Master
         }
         private void InitSettings()
         {
-            if (!Settings.KeyExist("FolderPath"))
+            if (!Settings.KeyExist(AppConsts.SaveFolderPath))
             {
-                Settings.AddSettings("FolderPath", Directory.GetCurrentDirectory() + "\\ScreenShots"); //Environment.GetFolderPath(Environment.SpecialFolder.MyPictures) + "\\ScreenShots");
+                Settings.AddSettings(AppConsts.SaveFolderPath, Directory.GetCurrentDirectory() + "\\ScreenShots"); //Environment.GetFolderPath(Environment.SpecialFolder.MyPictures) + "\\ScreenShots");
                 if(!Directory.Exists("ScreenShots"))
                 Directory.CreateDirectory("ScreenShots");
             }
-            if (!Settings.KeyExist("ImageFormat"))
-                Settings.AddSettings("ImageFormat", "png");
+            if (!Settings.KeyExist(AppConsts.ImageFormat))
+                Settings.AddSettings(AppConsts.ImageFormat, AppConsts.PNG);
             Settings.Refresh();
-            if(!Settings.KeyExist("On2ClickNotify"))
+            if(!Settings.KeyExist(AppConsts.OnNotifyDoubleClick))
             {
-                Settings.AddSettings("On2ClickNotify", "MakeSS");
+                Settings.AddSettings(AppConsts.OnNotifyDoubleClick, AppConsts.MakeScreenShot);
             }
-            bool check = Settings.GetValue("FormSize", "Minimum") == "Maximum";
-            showLastImgChBox.Checked = check;
+            bool check = Settings.GetValue(AppConsts.FormSize, "Minimum") == "Maximum";
+            ShowLastShotImageCheckBox.Checked = check;
             if (check)
                 this.Size = this.MaximumSize;
             else
                 this.Size = this.MinimumSize;
 
-            TopMost = Settings.GetValue("TopMost","true") == "true";
+            TopMost = Settings.GetValue(AppConsts.TopMost,"true") == "true";
             #region InitHotKeys
 
             InitHotkeys();
@@ -120,16 +120,16 @@ namespace ScreenShot_Master
 
         private void InitHotkeys()
         {
-            string fullModKey = "0", cutModKey = "2", windModKey = "1";
+            string fullModKey = "0", cutModKey = "2", windModKey = "1", copyLastUrlModKey = "1";
             string fullKey = Keys.PrintScreen.GetHashCode().ToString();
-            string cutKey = fullKey, windKey = fullKey;
-            fullModKey = Settings.GetValue("FullModKey", fullModKey);
-            cutModKey = Settings.GetValue("CutModKey", cutModKey);
-            windModKey = Settings.GetValue("WindModKey", windModKey);
+            string cutKey = fullKey, windKey = fullKey, copyLastUrlKey = Keys.F3.GetHashCode().ToString() ;
+            fullModKey = Settings.GetValue(AppConsts.FullScreenShotModKey, fullModKey);
+            cutModKey = Settings.GetValue(AppConsts.CutScreenShotModKey, cutModKey);
+            windModKey = Settings.GetValue(AppConsts.WindScreenShotModKey, windModKey);
 
-            windKey = Settings.GetValue("WindKey", windKey);
-            cutKey = Settings.GetValue("CutKey", cutKey);
-            fullKey = Settings.GetValue("FullKey", fullKey);
+            windKey = Settings.GetValue(AppConsts.WindScreenShotKey, windKey);
+            cutKey = Settings.GetValue(AppConsts.CutScreenShotKey, cutKey);
+            fullKey = Settings.GetValue(AppConsts.FullScreenShotKey, fullKey);
 
             int fullModKeyI = toint(fullModKey);
             int cutModKeyI = toint(cutModKey);
@@ -138,6 +138,9 @@ namespace ScreenShot_Master
             int cutKeyI = toint(cutKey);
             int fullKeyI = toint(fullKey);
             int windKeyI = toint(windKey);
+
+            int copyLastUrlModKeyI = toint(Settings.GetValue(AppConsts.CopyLastImageUrlModKey, copyLastUrlModKey));
+            int copyLastUrlKeyI = toint(Settings.GetValue(AppConsts.CopyLastImageUrlKey, copyLastUrlKey));
 
             HotKeyS.Init();
             HotKeyS.Handle = this.Handle;
@@ -174,13 +177,13 @@ namespace ScreenShot_Master
         {
             FormOut();
             SH.ScreenShot(Settings.GetSH_Settings(), new Shot_Setting());
-            pictureBox.Image = SH.LastImage;
+            LastScreenShotImageBox.Image = SH.LastImage;
             FormIn();
         }
 
         public void FormOut()
         {
-            if (Settings.GetValue("HideInShot", "true") == "false")
+            if (Settings.GetValue(AppConsts.HideInShot, "true") == "false")
                 return;
             if (WindowState == FormWindowState.Minimized)
                 return;
@@ -204,7 +207,7 @@ namespace ScreenShot_Master
                 SH.ScreenShotDoing = true;
                 t.ShowDialog();
                 SH.ScreenShot(Settings.GetSH_Settings(), new Shot_Setting(Screen.PrimaryScreen, t.ReturnRectangle.Size, t.ReturnRectangle.Location));
-                pictureBox.Image = (SH.LastImage != null) ? SH.LastImage : pictureBox.Image;
+                LastScreenShotImageBox.Image = (SH.LastImage != null) ? SH.LastImage : LastScreenShotImageBox.Image;
                 this.Visible = true;
                 FormIn();
             }
@@ -236,12 +239,12 @@ namespace ScreenShot_Master
         
         private void showLastImgChBox_CheckedChanged(object sender, EventArgs e)
         {
-            bool check = showLastImgChBox.Checked;
+            bool check = ShowLastShotImageCheckBox.Checked;
             if (check)
                 this.Size = this.MaximumSize;
             else
                 this.Size = this.MinimumSize;
-            Settings.AddSettings("FormSize", ((check) ? "Maximum" : "Minimum"));
+            Settings.AddSettings(AppConsts.FormSize, ((check) ? "Maximum" : "Minimum"));
         }
 
         private void MainForm_SizeChanged(object sender, EventArgs e)
@@ -265,7 +268,7 @@ namespace ScreenShot_Master
         {
             if (SH.LastImage == null)
                 return;
-            FImage fim = new FImage(pictureBox.Image);
+            FImage fim = new FImage(LastScreenShotImageBox.Image);
             fim.ShowDialog();
             
         }
@@ -293,11 +296,11 @@ namespace ScreenShot_Master
             if(Handle != SH.GetForegroundWindow())
                 FormOut();
             SH.ScreenShotCurrentWindow(Settings.GetSH_Settings());
-            pictureBox.Image = (SH.LastImage != null) ? SH.LastImage : pictureBox.Image;
+            LastScreenShotImageBox.Image = (SH.LastImage != null) ? SH.LastImage : LastScreenShotImageBox.Image;
             FormIn();
         }
 
-        private void открытьВPaintToolStripMenuItem_Click(object sender, EventArgs e)
+        private void OpenImageInPaintClick(object sender, EventArgs e)
         {
             if (SH.LastPath == null)
                 return;
@@ -311,7 +314,7 @@ namespace ScreenShot_Master
             catch { }
         }
 
-        private void открытьToolStripMenuItem_Click(object sender, EventArgs e)
+        private void OpenWithWindowsImageViewerClick(object sender, EventArgs e)
         {
             if (SH.LastPath == null)
                 return;
@@ -322,21 +325,21 @@ namespace ScreenShot_Master
             catch { }
         }
 
-        private void изображениеToolStripMenuItem_Click(object sender, EventArgs e)
+        private void CopyImageToClipboardClick(object sender, EventArgs e)
         {
             if (SH.LastImage == null)
                 return;
             Clipboard.SetImage(SH.LastImage);
         }
 
-        private void путьКФайлуToolStripMenuItem_Click(object sender, EventArgs e)
+        private void CopyImagePathToClipboardClick(object sender, EventArgs e)
         {
             if (SH.LastPath == null)
                 return;
             Clipboard.SetText(SH.LastPath);
         }
 
-        private void файлToolStripMenuItem_Click(object sender, EventArgs e)
+        private void CopyImageFileToClipboard(object sender, EventArgs e)
         {
             if (SH.LastPath == null)
                 return;
@@ -347,12 +350,20 @@ namespace ScreenShot_Master
 
         private void UploadImageTSMI_Click(object sender, EventArgs e)
         {
-            Thread t = new Thread(delegate() { Helper.PostToImgur(new Bitmap(SH.LastImage)); });
-            t.ApartmentState = ApartmentState.STA;
+            if (SH.LastImage == null)
+                return;
+            Thread t = new Thread(delegate() 
+            {
+                if (Helper.PostToImgur(new Bitmap(SH.LastImage)))
+                    TrayIcon.ShowBalloonTip(2000, "Изображение загружено", "Ссылка скопирована в буфер обмена", ToolTipIcon.Info);
+                else
+                    TrayIcon.ShowBalloonTip(1500, "Ошибка", "Не удалось загрузить изображение", ToolTipIcon.Error);
+            });
+            t.SetApartmentState(ApartmentState.STA);
             t.Start();
         }
 
-        private void оПрограммеToolStripMenuItem_Click(object sender, EventArgs e)
+        private void AboutProgramClick(object sender, EventArgs e)
         {
             AboutBox ab = new AboutBox();
             ab.ShowDialog();
@@ -372,7 +383,7 @@ namespace ScreenShot_Master
 
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (Settings.GetValue("DoOnClose", "1") == "1" && e.CloseReason == CloseReason.UserClosing)
+            if (Settings.GetValue(AppConsts.DoOnClose, "1") == "1" && e.CloseReason == CloseReason.UserClosing)
             {
                 e.Cancel = true;
                 this.WindowState = FormWindowState.Minimized;
@@ -386,12 +397,12 @@ namespace ScreenShot_Master
         private  void ExitApp(bool exit = false)
         {
             HotKeyS.UnregisterAll();
-            notifyIcon.Dispose();
+            TrayIcon.Dispose();
             if (exit)
                 Application.Exit();
         }
 
-        private void показатьПоследнийСкриншотToolStripMenuItem_Click(object sender, EventArgs e)
+        private void ShowLastScreenShotClick(object sender, EventArgs e)
         {
             if(SH.LastImage == null)
                 return;
@@ -400,13 +411,13 @@ namespace ScreenShot_Master
             fim.ShowDialog();
         }
 
-        private void настройкиToolStripMenuItem_Click(object sender, EventArgs e)
+        private void ShowSettingClick(object sender, EventArgs e)
         {
 
             settingsMenu_Click(sender, e);
         }
 
-        private void выходToolStripMenuItem_Click(object sender, EventArgs e)
+        private void ExitClick(object sender, EventArgs e)
         {
             ExitApp(true);
         }
@@ -415,12 +426,12 @@ namespace ScreenShot_Master
         {
         }
 
-        private void помощьToolStripMenuItem_Click(object sender, EventArgs e)
+        private void HelpClick(object sender, EventArgs e)
         {
-            оПрограммеToolStripMenuItem_Click(sender, e);
+            AboutProgramClick(sender, e);
         }
 
-        private void функцииToolStripMenuItem_Click(object sender, EventArgs e)
+        private void SettingsStripMenuItemClick(object sender, EventArgs e)
         {
             settingsMenu_Click(sender, e);
         }
@@ -462,29 +473,29 @@ namespace ScreenShot_Master
 
         private void notifyIcon_DoubleClick(object sender, EventArgs e)
         {
-            string on2click = Settings.GetValue("On2ClickNotify", "MakeSS");
+            string on2click = Settings.GetValue(AppConsts.OnNotifyDoubleClick, AppConsts.MakeScreenShot);
             switch(on2click)
             {
-                case "MakeSS":
+                case AppConsts.MakeScreenShot:
                     screenShotBtn_Click(null, null);
                     break;
-                case "Exit":
+                case AppConsts.Exit:
                     ExitApp(true);
                     break;
-                case "MakeSSAndUpload":
+                case AppConsts.MakeSSAndUpload:
                     screenShotBtn_Click(null, null);
                     UploadImageTSMI_Click(null, null);
                     break;
             }
         }
 
-        private void получитьСсылкуНаПоследнийСкриншотToolStripMenuItem_Click(object sender, EventArgs e)
+        private void getLastImageUrlToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if(SH.LastImage != null)
             UploadImageTSMI_Click(null, null);
         }
 
-        private void qRкодНаСсылкуToolStripMenuItem_Click(object sender, EventArgs e)
+        private void getQRCodeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (!String.IsNullOrEmpty(SH.LastImageUrl))
             {
@@ -500,6 +511,12 @@ namespace ScreenShot_Master
                 MessageBox.Show("Ссылка на изображение еще не получена. ", "Внимание!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
+
+        private void CopyLastImageUrlPressed(object sender, EventArgs e) 
+        {
+            getLastImageUrlToolStripMenuItem_Click(sender, e);
+        }
+
     }
    
 }

@@ -32,18 +32,20 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.On2ClickNotifyCMbox = new System.Windows.Forms.ComboBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.doOnCloseComBox = new System.Windows.Forms.ComboBox();
-            this.showNotifsInTrayComBox = new System.Windows.Forms.ComboBox();
-            this.runInWinLoadChBox = new System.Windows.Forms.CheckBox();
-            this.topMostChBox = new System.Windows.Forms.CheckBox();
+            this.ActionOnCloseCBox = new System.Windows.Forms.ComboBox();
+            this.ShowNotificationsOnTrayCheckBox = new System.Windows.Forms.ComboBox();
+            this.RunAppOnWindowsStartCHeckBox = new System.Windows.Forms.CheckBox();
+            this.AppTopMostCheckBox = new System.Windows.Forms.CheckBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.savepathTbox = new System.Windows.Forms.TextBox();
+            this.ScreenshotSavePathTBox = new System.Windows.Forms.TextBox();
             this.choseSavepathBtn = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.imageFormatComBox = new System.Windows.Forms.ComboBox();
-            this.hideAppInScreenShotChBox = new System.Windows.Forms.CheckBox();
+            this.ImageFormatCBox = new System.Windows.Forms.ComboBox();
+            this.HideAppOnShotCheckBox = new System.Windows.Forms.CheckBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -55,8 +57,7 @@
             this.fullKey = new System.Windows.Forms.ComboBox();
             this.fullMod = new System.Windows.Forms.ComboBox();
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
-            this.label7 = new System.Windows.Forms.Label();
-            this.On2ClickNotifyCMbox = new System.Windows.Forms.ComboBox();
+            this.CopyToClipboardAfterShotCheckbox = new System.Windows.Forms.CheckBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -72,7 +73,7 @@
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(436, 279);
+            this.tabControl1.Size = new System.Drawing.Size(436, 307);
             this.tabControl1.TabIndex = 0;
             // 
             // tabPage1
@@ -82,27 +83,51 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(428, 253);
+            this.tabPage1.Size = new System.Drawing.Size(428, 281);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Общие";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.CopyToClipboardAfterShotCheckbox);
             this.groupBox2.Controls.Add(this.On2ClickNotifyCMbox);
             this.groupBox2.Controls.Add(this.label7);
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Controls.Add(this.label2);
-            this.groupBox2.Controls.Add(this.doOnCloseComBox);
-            this.groupBox2.Controls.Add(this.showNotifsInTrayComBox);
-            this.groupBox2.Controls.Add(this.runInWinLoadChBox);
-            this.groupBox2.Controls.Add(this.topMostChBox);
+            this.groupBox2.Controls.Add(this.ActionOnCloseCBox);
+            this.groupBox2.Controls.Add(this.ShowNotificationsOnTrayCheckBox);
+            this.groupBox2.Controls.Add(this.RunAppOnWindowsStartCHeckBox);
+            this.groupBox2.Controls.Add(this.AppTopMostCheckBox);
             this.groupBox2.Location = new System.Drawing.Point(6, 110);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(414, 137);
+            this.groupBox2.Size = new System.Drawing.Size(414, 163);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Программа";
+            // 
+            // On2ClickNotifyCMbox
+            // 
+            this.On2ClickNotifyCMbox.FormattingEnabled = true;
+            this.On2ClickNotifyCMbox.Items.AddRange(new object[] {
+            "Сделать скриншот",
+            "Сделать скриншот и загрузить",
+            "Выйти из приложения"});
+            this.On2ClickNotifyCMbox.Location = new System.Drawing.Point(213, 95);
+            this.On2ClickNotifyCMbox.Name = "On2ClickNotifyCMbox";
+            this.On2ClickNotifyCMbox.Size = new System.Drawing.Size(181, 21);
+            this.On2ClickNotifyCMbox.TabIndex = 7;
+            this.On2ClickNotifyCMbox.SelectedIndexChanged += new System.EventHandler(this.On2ClickNotifyCMbox_SelectedIndexChanged);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(6, 98);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(195, 13);
+            this.label7.TabIndex = 6;
+            this.label7.Text = "При двойном клике на иконку в трее";
+            this.label7.Click += new System.EventHandler(this.label7_Click);
             // 
             // label3
             // 
@@ -125,61 +150,61 @@
             // 
             // doOnCloseComBox
             // 
-            this.doOnCloseComBox.FormattingEnabled = true;
-            this.doOnCloseComBox.Items.AddRange(new object[] {
+            this.ActionOnCloseCBox.FormattingEnabled = true;
+            this.ActionOnCloseCBox.Items.AddRange(new object[] {
             "закрыть",
             "свернуть"});
-            this.doOnCloseComBox.Location = new System.Drawing.Point(213, 70);
-            this.doOnCloseComBox.Name = "doOnCloseComBox";
-            this.doOnCloseComBox.Size = new System.Drawing.Size(181, 21);
-            this.doOnCloseComBox.TabIndex = 4;
-            this.doOnCloseComBox.SelectedIndexChanged += new System.EventHandler(this.doOnCloseComBox_SelectedIndexChanged);
+            this.ActionOnCloseCBox.Location = new System.Drawing.Point(213, 70);
+            this.ActionOnCloseCBox.Name = "doOnCloseComBox";
+            this.ActionOnCloseCBox.Size = new System.Drawing.Size(181, 21);
+            this.ActionOnCloseCBox.TabIndex = 4;
+            this.ActionOnCloseCBox.SelectedIndexChanged += new System.EventHandler(this.doOnCloseComBox_SelectedIndexChanged);
             // 
             // showNotifsInTrayComBox
             // 
-            this.showNotifsInTrayComBox.Enabled = false;
-            this.showNotifsInTrayComBox.FormattingEnabled = true;
-            this.showNotifsInTrayComBox.Items.AddRange(new object[] {
+            this.ShowNotificationsOnTrayCheckBox.Enabled = false;
+            this.ShowNotificationsOnTrayCheckBox.FormattingEnabled = true;
+            this.ShowNotificationsOnTrayCheckBox.Items.AddRange(new object[] {
             "всегда",
             "никогда",
             "когда главное окно свернуто"});
-            this.showNotifsInTrayComBox.Location = new System.Drawing.Point(213, 43);
-            this.showNotifsInTrayComBox.Name = "showNotifsInTrayComBox";
-            this.showNotifsInTrayComBox.Size = new System.Drawing.Size(181, 21);
-            this.showNotifsInTrayComBox.TabIndex = 4;
-            this.showNotifsInTrayComBox.SelectedIndexChanged += new System.EventHandler(this.showNotifsInTrayComBox_SelectedIndexChanged);
+            this.ShowNotificationsOnTrayCheckBox.Location = new System.Drawing.Point(213, 43);
+            this.ShowNotificationsOnTrayCheckBox.Name = "showNotifsInTrayComBox";
+            this.ShowNotificationsOnTrayCheckBox.Size = new System.Drawing.Size(181, 21);
+            this.ShowNotificationsOnTrayCheckBox.TabIndex = 4;
+            this.ShowNotificationsOnTrayCheckBox.SelectedIndexChanged += new System.EventHandler(this.showNotifsInTrayComBox_SelectedIndexChanged);
             // 
             // runInWinLoadChBox
             // 
-            this.runInWinLoadChBox.AutoSize = true;
-            this.runInWinLoadChBox.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.runInWinLoadChBox.Location = new System.Drawing.Point(198, 15);
-            this.runInWinLoadChBox.Name = "runInWinLoadChBox";
-            this.runInWinLoadChBox.Size = new System.Drawing.Size(196, 17);
-            this.runInWinLoadChBox.TabIndex = 1;
-            this.runInWinLoadChBox.Text = "Запускать при загрузке Windows";
-            this.runInWinLoadChBox.UseVisualStyleBackColor = true;
-            this.runInWinLoadChBox.CheckedChanged += new System.EventHandler(this.runInWinLoadChBox_CheckedChanged);
+            this.RunAppOnWindowsStartCHeckBox.AutoSize = true;
+            this.RunAppOnWindowsStartCHeckBox.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.RunAppOnWindowsStartCHeckBox.Location = new System.Drawing.Point(198, 15);
+            this.RunAppOnWindowsStartCHeckBox.Name = "runInWinLoadChBox";
+            this.RunAppOnWindowsStartCHeckBox.Size = new System.Drawing.Size(196, 17);
+            this.RunAppOnWindowsStartCHeckBox.TabIndex = 1;
+            this.RunAppOnWindowsStartCHeckBox.Text = "Запускать при загрузке Windows";
+            this.RunAppOnWindowsStartCHeckBox.UseVisualStyleBackColor = true;
+            this.RunAppOnWindowsStartCHeckBox.CheckedChanged += new System.EventHandler(this.runInWinLoadChBox_CheckedChanged);
             // 
             // topMostChBox
             // 
-            this.topMostChBox.AutoSize = true;
-            this.topMostChBox.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.topMostChBox.Location = new System.Drawing.Point(58, 15);
-            this.topMostChBox.Name = "topMostChBox";
-            this.topMostChBox.Size = new System.Drawing.Size(116, 17);
-            this.topMostChBox.TabIndex = 0;
-            this.topMostChBox.Text = "Поверх всех окон";
-            this.topMostChBox.UseVisualStyleBackColor = true;
-            this.topMostChBox.CheckedChanged += new System.EventHandler(this.topMostChBox_CheckedChanged);
+            this.AppTopMostCheckBox.AutoSize = true;
+            this.AppTopMostCheckBox.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.AppTopMostCheckBox.Location = new System.Drawing.Point(58, 15);
+            this.AppTopMostCheckBox.Name = "topMostChBox";
+            this.AppTopMostCheckBox.Size = new System.Drawing.Size(116, 17);
+            this.AppTopMostCheckBox.TabIndex = 0;
+            this.AppTopMostCheckBox.Text = "Поверх всех окон";
+            this.AppTopMostCheckBox.UseVisualStyleBackColor = true;
+            this.AppTopMostCheckBox.CheckedChanged += new System.EventHandler(this.topMostChBox_CheckedChanged);
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.savepathTbox);
+            this.groupBox1.Controls.Add(this.ScreenshotSavePathTBox);
             this.groupBox1.Controls.Add(this.choseSavepathBtn);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.imageFormatComBox);
-            this.groupBox1.Controls.Add(this.hideAppInScreenShotChBox);
+            this.groupBox1.Controls.Add(this.ImageFormatCBox);
+            this.groupBox1.Controls.Add(this.HideAppOnShotCheckBox);
             this.groupBox1.Location = new System.Drawing.Point(6, 6);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(414, 98);
@@ -189,10 +214,10 @@
             // 
             // savepathTbox
             // 
-            this.savepathTbox.Location = new System.Drawing.Point(6, 33);
-            this.savepathTbox.Name = "savepathTbox";
-            this.savepathTbox.Size = new System.Drawing.Size(371, 20);
-            this.savepathTbox.TabIndex = 1;
+            this.ScreenshotSavePathTBox.Location = new System.Drawing.Point(6, 33);
+            this.ScreenshotSavePathTBox.Name = "savepathTbox";
+            this.ScreenshotSavePathTBox.Size = new System.Drawing.Size(371, 20);
+            this.ScreenshotSavePathTBox.TabIndex = 1;
             // 
             // choseSavepathBtn
             // 
@@ -215,28 +240,28 @@
             // 
             // imageFormatComBox
             // 
-            this.imageFormatComBox.FormattingEnabled = true;
-            this.imageFormatComBox.Items.AddRange(new object[] {
+            this.ImageFormatCBox.FormattingEnabled = true;
+            this.ImageFormatCBox.Items.AddRange(new object[] {
             "PNG",
             "JPEG",
             "BMP"});
-            this.imageFormatComBox.Location = new System.Drawing.Point(352, 62);
-            this.imageFormatComBox.Name = "imageFormatComBox";
-            this.imageFormatComBox.Size = new System.Drawing.Size(58, 21);
-            this.imageFormatComBox.TabIndex = 1;
-            this.imageFormatComBox.SelectedIndexChanged += new System.EventHandler(this.imageFormatComBox_SelectedIndexChanged);
+            this.ImageFormatCBox.Location = new System.Drawing.Point(352, 62);
+            this.ImageFormatCBox.Name = "imageFormatComBox";
+            this.ImageFormatCBox.Size = new System.Drawing.Size(58, 21);
+            this.ImageFormatCBox.TabIndex = 1;
+            this.ImageFormatCBox.SelectedIndexChanged += new System.EventHandler(this.imageFormatComBox_SelectedIndexChanged);
             // 
             // hideAppInScreenShotChBox
             // 
-            this.hideAppInScreenShotChBox.AutoSize = true;
-            this.hideAppInScreenShotChBox.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.hideAppInScreenShotChBox.Location = new System.Drawing.Point(6, 62);
-            this.hideAppInScreenShotChBox.Name = "hideAppInScreenShotChBox";
-            this.hideAppInScreenShotChBox.Size = new System.Drawing.Size(208, 17);
-            this.hideAppInScreenShotChBox.TabIndex = 0;
-            this.hideAppInScreenShotChBox.Text = "Скрывать программу на скриншоте\r\n";
-            this.hideAppInScreenShotChBox.UseVisualStyleBackColor = true;
-            this.hideAppInScreenShotChBox.CheckedChanged += new System.EventHandler(this.hideAppInScreenShotChBox_CheckedChanged);
+            this.HideAppOnShotCheckBox.AutoSize = true;
+            this.HideAppOnShotCheckBox.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.HideAppOnShotCheckBox.Location = new System.Drawing.Point(6, 62);
+            this.HideAppOnShotCheckBox.Name = "hideAppInScreenShotChBox";
+            this.HideAppOnShotCheckBox.Size = new System.Drawing.Size(208, 17);
+            this.HideAppOnShotCheckBox.TabIndex = 0;
+            this.HideAppOnShotCheckBox.Text = "Скрывать программу на скриншоте\r\n";
+            this.HideAppOnShotCheckBox.UseVisualStyleBackColor = true;
+            this.HideAppOnShotCheckBox.CheckedChanged += new System.EventHandler(this.hideAppInScreenShotChBox_CheckedChanged);
             // 
             // tabPage2
             // 
@@ -251,7 +276,7 @@
             this.tabPage2.Controls.Add(this.fullMod);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Size = new System.Drawing.Size(428, 218);
+            this.tabPage2.Size = new System.Drawing.Size(428, 253);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Горячие клавиши";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -318,7 +343,6 @@
             this.activeKey.Name = "activeKey";
             this.activeKey.Size = new System.Drawing.Size(92, 21);
             this.activeKey.TabIndex = 0;
-            this.activeKey.SelectedIndexChanged += new System.EventHandler(this.activeKey_SelectedIndexChanged);
             // 
             // fullKey
             // 
@@ -327,7 +351,6 @@
             this.fullKey.Name = "fullKey";
             this.fullKey.Size = new System.Drawing.Size(92, 21);
             this.fullKey.TabIndex = 0;
-            this.fullKey.SelectedIndexChanged += new System.EventHandler(this.fullKey_SelectedIndexChanged);
             // 
             // fullMod
             // 
@@ -338,34 +361,24 @@
             this.fullMod.TabIndex = 0;
             this.fullMod.SelectedIndexChanged += new System.EventHandler(this.fullMod_SelectedIndexChanged);
             // 
-            // label7
+            // CopyToClipboardAfterShotCheckbox
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(6, 98);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(195, 13);
-            this.label7.TabIndex = 6;
-            this.label7.Text = "При двойном клике на иконку в трее";
-            this.label7.Click += new System.EventHandler(this.label7_Click);
-            // 
-            // On2ClickNotifyCMbox
-            // 
-            this.On2ClickNotifyCMbox.FormattingEnabled = true;
-            this.On2ClickNotifyCMbox.Items.AddRange(new object[] {
-            "Сделать скриншот",
-            "Сделать скриншот и загрузить",
-            "Выйти из приложения"});
-            this.On2ClickNotifyCMbox.Location = new System.Drawing.Point(213, 95);
-            this.On2ClickNotifyCMbox.Name = "On2ClickNotifyCMbox";
-            this.On2ClickNotifyCMbox.Size = new System.Drawing.Size(181, 21);
-            this.On2ClickNotifyCMbox.TabIndex = 7;
-            this.On2ClickNotifyCMbox.SelectedIndexChanged += new System.EventHandler(this.On2ClickNotifyCMbox_SelectedIndexChanged);
+            this.CopyToClipboardAfterShotCheckbox.AutoSize = true;
+            this.CopyToClipboardAfterShotCheckbox.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.CopyToClipboardAfterShotCheckbox.Location = new System.Drawing.Point(62, 122);
+            this.CopyToClipboardAfterShotCheckbox.Name = "CopyToClipboardAfterShotCheckbox";
+            this.CopyToClipboardAfterShotCheckbox.Size = new System.Drawing.Size(332, 17);
+            this.CopyToClipboardAfterShotCheckbox.TabIndex = 8;
+            this.CopyToClipboardAfterShotCheckbox.Text = "Копировать изображение в буфер обмена после скриншота";
+            this.CopyToClipboardAfterShotCheckbox.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.CopyToClipboardAfterShotCheckbox.UseVisualStyleBackColor = true;
+            this.CopyToClipboardAfterShotCheckbox.CheckedChanged += new System.EventHandler(this.CopyToClipboardAfterShotCheckbox_CheckedChanged);
             // 
             // FSettings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(436, 279);
+            this.ClientSize = new System.Drawing.Size(436, 307);
             this.Controls.Add(this.tabControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -390,18 +403,18 @@
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.CheckBox hideAppInScreenShotChBox;
-        private System.Windows.Forms.ComboBox imageFormatComBox;
+        private System.Windows.Forms.CheckBox HideAppOnShotCheckBox;
+        private System.Windows.Forms.ComboBox ImageFormatCBox;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.ComboBox showNotifsInTrayComBox;
-        private System.Windows.Forms.CheckBox runInWinLoadChBox;
-        private System.Windows.Forms.CheckBox topMostChBox;
+        private System.Windows.Forms.ComboBox ShowNotificationsOnTrayCheckBox;
+        private System.Windows.Forms.CheckBox RunAppOnWindowsStartCHeckBox;
+        private System.Windows.Forms.CheckBox AppTopMostCheckBox;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox savepathTbox;
+        private System.Windows.Forms.TextBox ScreenshotSavePathTBox;
         private System.Windows.Forms.Button choseSavepathBtn;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ComboBox doOnCloseComBox;
+        private System.Windows.Forms.ComboBox ActionOnCloseCBox;
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.Label label6;
@@ -415,5 +428,6 @@
         private System.Windows.Forms.ComboBox fullMod;
         private System.Windows.Forms.ComboBox On2ClickNotifyCMbox;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.CheckBox CopyToClipboardAfterShotCheckbox;
     }
 }

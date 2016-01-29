@@ -28,25 +28,31 @@ namespace ScreenShot_Master
 
         private void FSettings_Load(object sender, EventArgs e)
         {
-            savepathTbox.Text = Settings.GetValue("FolderPath");
-            imageFormatComBox.Text = imageFormatComBox.Items[imageFormatComBox.Items.IndexOf(Settings.GetValue("ImageFormat", "PNG").ToUpper())].ToString().ToUpper();
-            hideAppInScreenShotChBox.Checked = Convert.ToBoolean(Settings.GetValue("HideInShot", "true"));
-            topMostChBox.Checked = Convert.ToBoolean(Settings.GetValue("TopMost","true"));
-            this.TopMost = topMostChBox.Checked;
-            showNotifsInTrayComBox.Text = Convert.ToString(showNotifsInTrayComBox.Items[Convert.ToInt32(Settings.GetValue("ShowNotifsInTray","0"))]);
-            doOnCloseComBox.Text = Convert.ToString(doOnCloseComBox.Items[Convert.ToInt32(Settings.GetValue("DoOnClose","1"))]);
-            runInWinLoadChBox.Checked = getFromReg();
-            string on2click = Settings.GetValue("On2ClickNotify","MakeSS");
+            ScreenshotSavePathTBox.Text = Settings.GetValue(AppConsts.SaveFolderPath);
+            ImageFormatCBox.Text = ImageFormatCBox.Items[ImageFormatCBox.Items.IndexOf(Settings.GetValue(AppConsts.ImageFormat, AppConsts.PNG).ToUpper())].ToString().ToUpper();
+
+            HideAppOnShotCheckBox.Checked = Settings.GetValue(AppConsts.HideInShot, true);
+            AppTopMostCheckBox.Checked = Settings.GetValue(AppConsts.TopMost, true);
+
+            this.TopMost = AppTopMostCheckBox.Checked;
+
+            ShowNotificationsOnTrayCheckBox.Text = Convert.ToString(ShowNotificationsOnTrayCheckBox.Items[Convert.ToInt32(Settings.GetValue(AppConsts.ShowNotifsInTray,"0"))]);
+            ActionOnCloseCBox.Text = Convert.ToString(ActionOnCloseCBox.Items[Convert.ToInt32(Settings.GetValue(AppConsts.DoOnClose,"1"))]);
+            RunAppOnWindowsStartCHeckBox.Checked = getFromReg();
+
+            CopyToClipboardAfterShotCheckbox.Checked = Settings.GetValue(AppConsts.CopyToClipboardAfterShot, false);
+
+            string on2click = Settings.GetValue(AppConsts.OnNotifyDoubleClick, AppConsts.MakeScreenShot);
 
             switch(on2click)
             {
-                case "MakeSS":
+                case AppConsts.MakeScreenShot:
                     On2ClickNotifyCMbox.Text = Convert.ToString(On2ClickNotifyCMbox.Items[0]);
                     break;
-                case "Exit":
+                case AppConsts.Exit:
                     On2ClickNotifyCMbox.Text = Convert.ToString(On2ClickNotifyCMbox.Items[2]);
                     break;
-                case "MakeSSAndUpload":
+                case AppConsts.MakeSSAndUpload:
                     On2ClickNotifyCMbox.Text = Convert.ToString(On2ClickNotifyCMbox.Items[1]);
                     break;
 
@@ -55,37 +61,43 @@ namespace ScreenShot_Master
 
         private void InitHotkeys()
         {
-
             fullMod.DataSource = Enum.GetValues(typeof(HotKeyS.KeyModifer));
             rectMod.DataSource = Enum.GetValues(typeof(HotKeyS.KeyModifer));
             activeMod.DataSource = Enum.GetValues(typeof(HotKeyS.KeyModifer));
+
             fullKey.DataSource = Enum.GetValues(typeof(Keys));
             rectKey.DataSource = Enum.GetValues(typeof(Keys));
             activeKey.DataSource = Enum.GetValues(typeof(Keys));
 
-            string fullModKey = "0", cutModKey = "2", windModKey = "1";
+            string fullModKey = "0", cutModKey = "2", windModKey = "1", copyLastUrlModKey = "1";
             string fullKKey = Keys.PrintScreen.GetHashCode().ToString();
-            string cutKey = fullKKey, windKey = fullKKey;
+            string cutKey = fullKKey, windKey = fullKKey, copyLastUrlKey = Keys.F3.GetHashCode().ToString(); ;
 
-            fullModKey = Settings.GetValue("FullModKey", fullModKey);
-            cutModKey = Settings.GetValue("CutModKey", cutModKey);
-            windModKey = Settings.GetValue("WindModKey", windModKey);
+            fullModKey = Settings.GetValue(AppConsts.FullScreenShotModKey, fullModKey);
+            cutModKey = Settings.GetValue(AppConsts.CutScreenShotModKey, cutModKey);
+            windModKey = Settings.GetValue(AppConsts.WindScreenShotModKey, windModKey);
 
-            windKey = Settings.GetValue("WindKey", windKey);
-            cutKey = Settings.GetValue("CutKey", cutKey);
-            fullKKey = Settings.GetValue("FullKey", fullKKey);
+            windKey = Settings.GetValue(AppConsts.WindScreenShotKey, windKey);
+            cutKey = Settings.GetValue(AppConsts.CutScreenShotKey, cutKey);
+            fullKKey = Settings.GetValue(AppConsts.FullScreenShotKey, fullKKey);
+
+            int copyLastUrlModKey_ = toint(Settings.GetValue(AppConsts.CopyLastImageUrlModKey, copyLastUrlModKey));
+            int copyLastUrlKey_ = toint(Settings.GetValue(AppConsts.CopyLastImageUrlKey, copyLastUrlKey));
 
             HotKeyS.KeyModifer fullModKeyI = (HotKeyS.KeyModifer)toint(fullModKey);
             HotKeyS.KeyModifer cutModKeyI = (HotKeyS.KeyModifer)toint(cutModKey);
             HotKeyS.KeyModifer windModKeyI = (HotKeyS.KeyModifer)toint(windModKey);
+            HotKeyS.KeyModifer copyImageUrlModKeyI = (HotKeyS.KeyModifer)copyLastUrlModKey_;
 
             Keys cutKeyI = (Keys)toint(cutKey);
             Keys fullKeyI = (Keys)toint(fullKKey);
             Keys windKeyI = (Keys)toint(windKey);
+            Keys lastUrlKeyI = (Keys)copyLastUrlKey_;
 
             fullKey.SelectedItem = fullKeyI;
             rectKey.SelectedItem = cutKeyI;
             activeKey.SelectedItem = windKeyI;
+
             fullMod.SelectedItem = fullModKeyI;
             rectMod.SelectedItem = cutModKeyI;
             activeMod.SelectedItem = windModKeyI;
@@ -99,52 +111,52 @@ namespace ScreenShot_Master
             folderBrowserDialog1.ShowDialog();
             if(folderBrowserDialog1.SelectedPath != null && Directory.Exists(folderBrowserDialog1.SelectedPath))
             {
-                Settings.EditKey("FolderPath", folderBrowserDialog1.SelectedPath);
-                savepathTbox.Text = folderBrowserDialog1.SelectedPath;
+                Settings.EditKey(AppConsts.SaveFolderPath, folderBrowserDialog1.SelectedPath);
+                ScreenshotSavePathTBox.Text = folderBrowserDialog1.SelectedPath;
 
             }
         }
 
         private void topMostChBox_CheckedChanged(object sender, EventArgs e)
         {
-            this.TopMost = topMostChBox.Checked;
-            Settings.EditKey("TopMost", TopMost.ToString());
+            this.TopMost = AppTopMostCheckBox.Checked;
+            Settings.EditKey(AppConsts.TopMost, TopMost.ToString());
         }
 
         private void hideAppInScreenShotChBox_CheckedChanged(object sender, EventArgs e)
         {
-            Settings.EditKey("HideInShot", hideAppInScreenShotChBox.Checked.ToString());
+            Settings.EditKey(AppConsts.HideInShot, HideAppOnShotCheckBox.Checked.ToString());
         }
 
         private void imageFormatComBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            int index = imageFormatComBox.SelectedIndex;
-            Settings.EditKey("ImageFormat", imageFormatComBox.Items[index].ToString());
+            int index = ImageFormatCBox.SelectedIndex;
+            Settings.EditKey(AppConsts.ImageFormat, ImageFormatCBox.Items[index].ToString());
         }
 
         private void showNotifsInTrayComBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            int index = showNotifsInTrayComBox.SelectedIndex;
-            Settings.EditKey("ShowNotifsInTray", index.ToString());
+            int index = ShowNotificationsOnTrayCheckBox.SelectedIndex;
+            Settings.EditKey(AppConsts.ShowNotifsInTray, index.ToString());
         }
 
         private void doOnCloseComBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            int index = doOnCloseComBox.SelectedIndex;
-            Settings.EditKey("DoOnClose", index.ToString());
+            int index = ActionOnCloseCBox.SelectedIndex;
+            Settings.EditKey(AppConsts.DoOnClose, index.ToString());
         }
         private bool getFromReg()
         {
             bool ans = true;
-            string key = Registry.GetValue("HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Run", "ScreenShot Master", "not exist").ToString();
+            string key = Registry.GetValue("HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Run", AppConsts.AppName, "not exist").ToString();
             if (key == "not exist") ans = false;
             return ans;
         }
         private void runInWinLoadChBox_CheckedChanged(object sender, EventArgs e)
         {
-            if (runInWinLoadChBox.Checked)
+            if (RunAppOnWindowsStartCHeckBox.Checked)
             {
-                Registry.SetValue("HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Run", "ScreenShot Master", Application.ExecutablePath);
+                Registry.SetValue("HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Run", AppConsts.AppName, Application.ExecutablePath);
             }
 
             else
@@ -153,7 +165,7 @@ namespace ScreenShot_Master
                 using (RegistryKey key = Registry.CurrentUser.OpenSubKey(keyName, true))
                 {
                     if (key != null)
-                        key.DeleteValue("ScreenShot Master");
+                        key.DeleteValue(AppConsts.AppName);
                     
                 }
             }
@@ -165,7 +177,7 @@ namespace ScreenShot_Master
                 return;
             HotKeyS.KeyModifer modif;
             Enum.TryParse<HotKeyS.KeyModifer>(activeMod.SelectedValue.ToString(), out modif);
-            Settings.EditKey("WindModKey", tostr((int)modif));
+            Settings.EditKey(AppConsts.WindScreenShotModKey, tostr((int)modif));
         }
 
         private void fullMod_SelectedIndexChanged(object sender, EventArgs e)
@@ -174,7 +186,7 @@ namespace ScreenShot_Master
                 return;
             HotKeyS.KeyModifer modif;
             Enum.TryParse<HotKeyS.KeyModifer>(fullMod.SelectedValue.ToString(), out modif);
-            Settings.EditKey("FullModKey", tostr((int)modif));
+            Settings.EditKey(AppConsts.FullScreenShotModKey, tostr((int)modif));
         }
 
         private void tabPage2_Click(object sender, EventArgs e)
@@ -188,7 +200,7 @@ namespace ScreenShot_Master
                 return;
             Keys key;
             Enum.TryParse<Keys>(activeKey.SelectedValue.ToString(), out key);
-            Settings.EditKey("WindKey", tostr(key.GetHashCode()));
+            Settings.EditKey(AppConsts.WindScreenShotKey, tostr(key.GetHashCode()));
         }
 
         private void rectKey_SelectedIndexChanged(object sender, EventArgs e)
@@ -197,7 +209,7 @@ namespace ScreenShot_Master
                 return;
             Keys key;
             Enum.TryParse<Keys>(rectKey.SelectedValue.ToString(), out key);
-            Settings.EditKey("CutKey", tostr(key.GetHashCode()));
+            Settings.EditKey(AppConsts.CutScreenShotKey, tostr(key.GetHashCode()));
         }
 
         private void rectMod_SelectedIndexChanged(object sender, EventArgs e)
@@ -206,7 +218,7 @@ namespace ScreenShot_Master
                 return;
             HotKeyS.KeyModifer modif;
             Enum.TryParse<HotKeyS.KeyModifer>(rectMod.SelectedValue.ToString(), out modif);
-            Settings.EditKey("CutModKey", tostr((int)modif));
+            Settings.EditKey(AppConsts.CutScreenShotModKey, tostr((int)modif));
         }
         private string tostr(int y)
         {
@@ -219,7 +231,7 @@ namespace ScreenShot_Master
                 return;
             Keys key;
             Enum.TryParse<Keys>(fullKey.SelectedValue.ToString(), out key);
-            Settings.EditKey("FullKey", tostr(key.GetHashCode()));
+            Settings.EditKey(AppConsts.FullScreenShotKey, tostr(key.GetHashCode()));
         }
 
         private void label7_Click(object sender, EventArgs e)
@@ -234,16 +246,20 @@ namespace ScreenShot_Master
             switch (on2click)
             {
                 case 0:
-                    Settings.EditKey("On2ClickNotify", "MakeSS");
+                    Settings.EditKey(AppConsts.OnNotifyDoubleClick, AppConsts.MakeScreenShot);
                     break;
                 case 2:
-                    Settings.EditKey("On2ClickNotify", "Exit");
+                    Settings.EditKey(AppConsts.OnNotifyDoubleClick, AppConsts.Exit);
                     break;
                 case 1:
-                    Settings.EditKey("On2ClickNotify", "MakeSSAndUpload");
+                    Settings.EditKey(AppConsts.OnNotifyDoubleClick, AppConsts.MakeSSAndUpload);
                     break;
             }
         }
-       
+
+        private void CopyToClipboardAfterShotCheckbox_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

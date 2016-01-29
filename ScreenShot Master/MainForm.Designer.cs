@@ -31,32 +31,32 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.mainMenu = new System.Windows.Forms.MenuStrip();
-            this.функцииToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.помощьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.showLastImgChBox = new System.Windows.Forms.CheckBox();
-            this.pictureContexMenuStip = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.открытьВPaintToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.открытьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.получитьСсылкуToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.копироватьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.файлToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.изображениеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.путьКФайлуToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.pictureBox = new System.Windows.Forms.PictureBox();
-            this.rectangleShotBtn = new System.Windows.Forms.Button();
-            this.screenShotBtn = new System.Windows.Forms.Button();
-            this.notifyIcon = new System.Windows.Forms.NotifyIcon(this.components);
-            this.notifyContexMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.показатьПоследнийСкриншотToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.настройкиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.выходToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.получитьСсылкуНаПоследнийСкриншотToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.qRкодНаСсылкуToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.mainMenu.SuspendLayout();
-            this.pictureContexMenuStip.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
-            this.notifyContexMenu.SuspendLayout();
+            this.MainMenu = new System.Windows.Forms.MenuStrip();
+            this.SettingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.HelpMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ShowLastShotImageCheckBox = new System.Windows.Forms.CheckBox();
+            this.ImageContextMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.OpenInPaintMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.OpenWithWindowsViewerMenuIcon = new System.Windows.Forms.ToolStripMenuItem();
+            this.GetUrlToImageMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.CopyDropDownMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.CopyFileMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.CopyImageMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.CopyPathToImageMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.GetQRCodeForLastShotMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.LastScreenShotImageBox = new System.Windows.Forms.PictureBox();
+            this.ShotRectangleButton = new System.Windows.Forms.Button();
+            this.ShotFullScreenButton = new System.Windows.Forms.Button();
+            this.TrayIcon = new System.Windows.Forms.NotifyIcon(this.components);
+            this.TrayContextMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.ShowLastScreenShotMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.SettingsMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ExitMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.GetUrlForLastShotMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.MainMenu.SuspendLayout();
+            this.ImageContextMenu.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.LastScreenShotImageBox)).BeginInit();
+            this.TrayContextMenu.SuspendLayout();
             this.SuspendLayout();
             // 
             // timer1
@@ -64,215 +64,214 @@
             this.timer1.Interval = 5000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // mainMenu
+            // MainMenu
             // 
-            this.mainMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.функцииToolStripMenuItem,
-            this.помощьToolStripMenuItem});
-            this.mainMenu.Location = new System.Drawing.Point(0, 0);
-            this.mainMenu.Name = "mainMenu";
-            this.mainMenu.Size = new System.Drawing.Size(184, 24);
-            this.mainMenu.TabIndex = 4;
-            this.mainMenu.Text = "mainMenu";
-            this.mainMenu.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
+            this.MainMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.SettingsToolStripMenuItem,
+            this.HelpMenuItem});
+            this.MainMenu.Location = new System.Drawing.Point(0, 0);
+            this.MainMenu.Name = "MainMenu";
+            this.MainMenu.Size = new System.Drawing.Size(184, 24);
+            this.MainMenu.TabIndex = 4;
+            this.MainMenu.Text = "mainMenu";
+            this.MainMenu.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
             // 
-            // функцииToolStripMenuItem
+            // SettingsToolStripMenuItem
             // 
-            this.функцииToolStripMenuItem.Name = "функцииToolStripMenuItem";
-            this.функцииToolStripMenuItem.Size = new System.Drawing.Size(79, 20);
-            this.функцииToolStripMenuItem.Text = "Настройки";
-            this.функцииToolStripMenuItem.Click += new System.EventHandler(this.функцииToolStripMenuItem_Click);
+            this.SettingsToolStripMenuItem.Name = "SettingsToolStripMenuItem";
+            this.SettingsToolStripMenuItem.Size = new System.Drawing.Size(79, 20);
+            this.SettingsToolStripMenuItem.Text = "Настройки";
+            this.SettingsToolStripMenuItem.Click += new System.EventHandler(this.SettingsStripMenuItemClick);
             // 
-            // помощьToolStripMenuItem
+            // HelpMenuItem
             // 
-            this.помощьToolStripMenuItem.Name = "помощьToolStripMenuItem";
-            this.помощьToolStripMenuItem.Size = new System.Drawing.Size(94, 20);
-            this.помощьToolStripMenuItem.Text = "О программе";
-            this.помощьToolStripMenuItem.Click += new System.EventHandler(this.помощьToolStripMenuItem_Click);
+            this.HelpMenuItem.Name = "HelpMenuItem";
+            this.HelpMenuItem.Size = new System.Drawing.Size(94, 20);
+            this.HelpMenuItem.Text = "О программе";
+            this.HelpMenuItem.Click += new System.EventHandler(this.HelpClick);
             // 
-            // showLastImgChBox
+            // ShowLastShotImageCheckBox
             // 
-            this.showLastImgChBox.AutoSize = true;
-            this.showLastImgChBox.Location = new System.Drawing.Point(11, 75);
-            this.showLastImgChBox.Name = "showLastImgChBox";
-            this.showLastImgChBox.Size = new System.Drawing.Size(163, 17);
-            this.showLastImgChBox.TabIndex = 5;
-            this.showLastImgChBox.Text = "Показывать  изображение";
-            this.showLastImgChBox.UseVisualStyleBackColor = true;
-            this.showLastImgChBox.CheckedChanged += new System.EventHandler(this.showLastImgChBox_CheckedChanged);
+            this.ShowLastShotImageCheckBox.AutoSize = true;
+            this.ShowLastShotImageCheckBox.Location = new System.Drawing.Point(11, 75);
+            this.ShowLastShotImageCheckBox.Name = "ShowLastShotImageCheckBox";
+            this.ShowLastShotImageCheckBox.Size = new System.Drawing.Size(163, 17);
+            this.ShowLastShotImageCheckBox.TabIndex = 5;
+            this.ShowLastShotImageCheckBox.Text = "Показывать  изображение";
+            this.ShowLastShotImageCheckBox.UseVisualStyleBackColor = true;
+            this.ShowLastShotImageCheckBox.CheckedChanged += new System.EventHandler(this.showLastImgChBox_CheckedChanged);
             // 
-            // pictureContexMenuStip
+            // ImageContextMenu
             // 
-            this.pictureContexMenuStip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.открытьВPaintToolStripMenuItem,
-            this.открытьToolStripMenuItem,
-            this.получитьСсылкуToolStripMenuItem,
-            this.копироватьToolStripMenuItem,
-            this.qRкодНаСсылкуToolStripMenuItem});
-            this.pictureContexMenuStip.Name = "pictureContexMenuStip";
-            this.pictureContexMenuStip.Size = new System.Drawing.Size(174, 136);
+            this.ImageContextMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.OpenInPaintMenuItem,
+            this.OpenWithWindowsViewerMenuIcon,
+            this.GetUrlToImageMenuItem,
+            this.CopyDropDownMenu,
+            this.GetQRCodeForLastShotMenuItem});
+            this.ImageContextMenu.Name = "ImageContextMenu";
+            this.ImageContextMenu.Size = new System.Drawing.Size(174, 114);
             // 
-            // открытьВPaintToolStripMenuItem
+            // OpenInPaintMenuItem
             // 
-            this.открытьВPaintToolStripMenuItem.Name = "открытьВPaintToolStripMenuItem";
-            this.открытьВPaintToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
-            this.открытьВPaintToolStripMenuItem.Text = "Открыть в Paint";
-            this.открытьВPaintToolStripMenuItem.Click += new System.EventHandler(this.открытьВPaintToolStripMenuItem_Click);
+            this.OpenInPaintMenuItem.Name = "OpenInPaintMenuItem";
+            this.OpenInPaintMenuItem.Size = new System.Drawing.Size(173, 22);
+            this.OpenInPaintMenuItem.Text = "Открыть в Paint";
+            this.OpenInPaintMenuItem.Click += new System.EventHandler(this.OpenImageInPaintClick);
             // 
-            // открытьToolStripMenuItem
+            // OpenWithWindowsViewerMenuIcon
             // 
-            this.открытьToolStripMenuItem.Name = "открытьToolStripMenuItem";
-            this.открытьToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
-            this.открытьToolStripMenuItem.Text = "Открыть";
-            this.открытьToolStripMenuItem.Click += new System.EventHandler(this.открытьToolStripMenuItem_Click);
+            this.OpenWithWindowsViewerMenuIcon.Name = "OpenWithWindowsViewerMenuIcon";
+            this.OpenWithWindowsViewerMenuIcon.Size = new System.Drawing.Size(173, 22);
+            this.OpenWithWindowsViewerMenuIcon.Text = "Открыть";
+            this.OpenWithWindowsViewerMenuIcon.Click += new System.EventHandler(this.OpenWithWindowsImageViewerClick);
             // 
-            // получитьСсылкуToolStripMenuItem
+            // GetUrlToImageMenuItem
             // 
-            this.получитьСсылкуToolStripMenuItem.Name = "получитьСсылкуToolStripMenuItem";
-            this.получитьСсылкуToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
-            this.получитьСсылкуToolStripMenuItem.Text = "Получить ссылку";
-            this.получитьСсылкуToolStripMenuItem.Click += new System.EventHandler(this.UploadImageTSMI_Click);
+            this.GetUrlToImageMenuItem.Name = "GetUrlToImageMenuItem";
+            this.GetUrlToImageMenuItem.Size = new System.Drawing.Size(173, 22);
+            this.GetUrlToImageMenuItem.Text = "Получить ссылку";
+            this.GetUrlToImageMenuItem.Click += new System.EventHandler(this.UploadImageTSMI_Click);
             // 
-            // копироватьToolStripMenuItem
+            // CopyDropDownMenu
             // 
-            this.копироватьToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.файлToolStripMenuItem,
-            this.изображениеToolStripMenuItem,
-            this.путьКФайлуToolStripMenuItem});
-            this.копироватьToolStripMenuItem.Name = "копироватьToolStripMenuItem";
-            this.копироватьToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
-            this.копироватьToolStripMenuItem.Text = "Копировать";
+            this.CopyDropDownMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.CopyFileMenuItem,
+            this.CopyImageMenuItem,
+            this.CopyPathToImageMenuItem});
+            this.CopyDropDownMenu.Name = "CopyDropDownMenu";
+            this.CopyDropDownMenu.Size = new System.Drawing.Size(173, 22);
+            this.CopyDropDownMenu.Text = "Копировать";
             // 
-            // файлToolStripMenuItem
+            // CopyFileMenuItem
             // 
-            this.файлToolStripMenuItem.Name = "файлToolStripMenuItem";
-            this.файлToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
-            this.файлToolStripMenuItem.Text = "Файл";
-            this.файлToolStripMenuItem.Click += new System.EventHandler(this.файлToolStripMenuItem_Click);
+            this.CopyFileMenuItem.Name = "CopyFileMenuItem";
+            this.CopyFileMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.CopyFileMenuItem.Text = "Файл";
+            this.CopyFileMenuItem.Click += new System.EventHandler(this.CopyImageFileToClipboard);
             // 
-            // изображениеToolStripMenuItem
+            // CopyImageMenuItem
             // 
-            this.изображениеToolStripMenuItem.Name = "изображениеToolStripMenuItem";
-            this.изображениеToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
-            this.изображениеToolStripMenuItem.Text = "Изображение";
-            this.изображениеToolStripMenuItem.Click += new System.EventHandler(this.изображениеToolStripMenuItem_Click);
+            this.CopyImageMenuItem.Name = "CopyImageMenuItem";
+            this.CopyImageMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.CopyImageMenuItem.Text = "Изображение";
+            this.CopyImageMenuItem.Click += new System.EventHandler(this.CopyImageToClipboardClick);
             // 
-            // путьКФайлуToolStripMenuItem
+            // CopyPathToImageMenuItem
             // 
-            this.путьКФайлуToolStripMenuItem.Name = "путьКФайлуToolStripMenuItem";
-            this.путьКФайлуToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
-            this.путьКФайлуToolStripMenuItem.Text = "Путь к файлу";
-            this.путьКФайлуToolStripMenuItem.Click += new System.EventHandler(this.путьКФайлуToolStripMenuItem_Click);
+            this.CopyPathToImageMenuItem.Name = "CopyPathToImageMenuItem";
+            this.CopyPathToImageMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.CopyPathToImageMenuItem.Text = "Путь к файлу";
+            this.CopyPathToImageMenuItem.Click += new System.EventHandler(this.CopyImagePathToClipboardClick);
             // 
-            // pictureBox
+            // GetQRCodeForLastShotMenuItem
             // 
-            this.pictureBox.ContextMenuStrip = this.pictureContexMenuStip;
-            this.pictureBox.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox.ErrorImage = null;
-            this.pictureBox.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox.Image")));
-            this.pictureBox.Location = new System.Drawing.Point(1, 93);
-            this.pictureBox.MaximumSize = new System.Drawing.Size(294, 175);
-            this.pictureBox.Name = "pictureBox";
-            this.pictureBox.Size = new System.Drawing.Size(192, 104);
-            this.pictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox.TabIndex = 2;
-            this.pictureBox.TabStop = false;
-            this.pictureBox.Click += new System.EventHandler(this.pictureBox_Click_1);
+            this.GetQRCodeForLastShotMenuItem.Name = "GetQRCodeForLastShotMenuItem";
+            this.GetQRCodeForLastShotMenuItem.Size = new System.Drawing.Size(173, 22);
+            this.GetQRCodeForLastShotMenuItem.Text = "QR-код на ссылку";
+            this.GetQRCodeForLastShotMenuItem.Click += new System.EventHandler(this.getQRCodeToolStripMenuItem_Click);
             // 
-            // rectangleShotBtn
+            // LastScreenShotImageBox
             // 
-            this.rectangleShotBtn.Image = global::ScreenShot_Master.Properties.Resources.genericapp51;
-            this.rectangleShotBtn.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.rectangleShotBtn.Location = new System.Drawing.Point(92, 23);
-            this.rectangleShotBtn.Name = "rectangleShotBtn";
-            this.rectangleShotBtn.Size = new System.Drawing.Size(100, 52);
-            this.rectangleShotBtn.TabIndex = 1;
-            this.rectangleShotBtn.Text = "Выделить";
-            this.rectangleShotBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.rectangleShotBtn.UseVisualStyleBackColor = true;
-            this.rectangleShotBtn.Click += new System.EventHandler(this.pictureBox_Click);
+            this.LastScreenShotImageBox.ContextMenuStrip = this.ImageContextMenu;
+            this.LastScreenShotImageBox.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.LastScreenShotImageBox.ErrorImage = null;
+            this.LastScreenShotImageBox.Image = ((System.Drawing.Image)(resources.GetObject("LastScreenShotImageBox.Image")));
+            this.LastScreenShotImageBox.Location = new System.Drawing.Point(1, 93);
+            this.LastScreenShotImageBox.MaximumSize = new System.Drawing.Size(294, 175);
+            this.LastScreenShotImageBox.Name = "LastScreenShotImageBox";
+            this.LastScreenShotImageBox.Size = new System.Drawing.Size(192, 104);
+            this.LastScreenShotImageBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.LastScreenShotImageBox.TabIndex = 2;
+            this.LastScreenShotImageBox.TabStop = false;
+            this.LastScreenShotImageBox.Click += new System.EventHandler(this.pictureBox_Click_1);
             // 
-            // screenShotBtn
+            // ShotRectangleButton
             // 
-            this.screenShotBtn.Image = global::ScreenShot_Master.Properties.Resources.screen;
-            this.screenShotBtn.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.screenShotBtn.Location = new System.Drawing.Point(1, 23);
-            this.screenShotBtn.Name = "screenShotBtn";
-            this.screenShotBtn.Size = new System.Drawing.Size(87, 52);
-            this.screenShotBtn.TabIndex = 1;
-            this.screenShotBtn.Text = "Заскринить";
-            this.screenShotBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.screenShotBtn.UseVisualStyleBackColor = true;
-            this.screenShotBtn.Click += new System.EventHandler(this.screenShotBtn_Click);
+            this.ShotRectangleButton.Image = global::ScreenShot_Master.Properties.Resources.genericapp51;
+            this.ShotRectangleButton.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.ShotRectangleButton.Location = new System.Drawing.Point(92, 23);
+            this.ShotRectangleButton.Name = "ShotRectangleButton";
+            this.ShotRectangleButton.Size = new System.Drawing.Size(100, 52);
+            this.ShotRectangleButton.TabIndex = 1;
+            this.ShotRectangleButton.Text = "Выделить";
+            this.ShotRectangleButton.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.ShotRectangleButton.UseVisualStyleBackColor = true;
+            this.ShotRectangleButton.Click += new System.EventHandler(this.pictureBox_Click);
             // 
-            // notifyIcon
+            // ShotFullScreenButton
             // 
-            this.notifyIcon.BalloonTipIcon = System.Windows.Forms.ToolTipIcon.Info;
-            this.notifyIcon.ContextMenuStrip = this.notifyContexMenu;
-            this.notifyIcon.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon.Icon")));
-            this.notifyIcon.Text = "ScreenShot Master";
-            this.notifyIcon.Visible = true;
-            this.notifyIcon.Click += new System.EventHandler(this.notifyIcon_Click);
-            this.notifyIcon.DoubleClick += new System.EventHandler(this.notifyIcon_DoubleClick);
+            this.ShotFullScreenButton.Image = global::ScreenShot_Master.Properties.Resources.screen;
+            this.ShotFullScreenButton.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.ShotFullScreenButton.Location = new System.Drawing.Point(1, 23);
+            this.ShotFullScreenButton.Name = "ShotFullScreenButton";
+            this.ShotFullScreenButton.Size = new System.Drawing.Size(87, 52);
+            this.ShotFullScreenButton.TabIndex = 1;
+            this.ShotFullScreenButton.Text = "Заскринить";
+            this.ShotFullScreenButton.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.ShotFullScreenButton.UseVisualStyleBackColor = true;
+            this.ShotFullScreenButton.Click += new System.EventHandler(this.screenShotBtn_Click);
             // 
-            // notifyContexMenu
+            // TrayIcon
             // 
-            this.notifyContexMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.показатьПоследнийСкриншотToolStripMenuItem,
-            this.настройкиToolStripMenuItem,
-            this.выходToolStripMenuItem,
-            this.получитьСсылкуНаПоследнийСкриншотToolStripMenuItem});
-            this.notifyContexMenu.Name = "notifyContexMenu";
-            this.notifyContexMenu.Size = new System.Drawing.Size(310, 92);
+            this.TrayIcon.BalloonTipIcon = System.Windows.Forms.ToolTipIcon.Info;
+            this.TrayIcon.ContextMenuStrip = this.TrayContextMenu;
+            this.TrayIcon.Text = "ScreenShot Master";
+            this.TrayIcon.Visible = true;
+            this.TrayIcon.Click += new System.EventHandler(this.notifyIcon_Click);
+            this.TrayIcon.DoubleClick += new System.EventHandler(this.notifyIcon_DoubleClick);
             // 
-            // показатьПоследнийСкриншотToolStripMenuItem
+            // TrayContextMenu
             // 
-            this.показатьПоследнийСкриншотToolStripMenuItem.Name = "показатьПоследнийСкриншотToolStripMenuItem";
-            this.показатьПоследнийСкриншотToolStripMenuItem.Size = new System.Drawing.Size(309, 22);
-            this.показатьПоследнийСкриншотToolStripMenuItem.Text = "Показать последний скриншот";
-            this.показатьПоследнийСкриншотToolStripMenuItem.Click += new System.EventHandler(this.показатьПоследнийСкриншотToolStripMenuItem_Click);
+            this.TrayContextMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ShowLastScreenShotMenuItem,
+            this.SettingsMenuItem,
+            this.ExitMenuItem,
+            this.GetUrlForLastShotMenuItem});
+            this.TrayContextMenu.Name = "TrayContextMeny";
+            this.TrayContextMenu.Size = new System.Drawing.Size(310, 92);
             // 
-            // настройкиToolStripMenuItem
+            // ShowLastScreenShotMenuItem
             // 
-            this.настройкиToolStripMenuItem.Name = "настройкиToolStripMenuItem";
-            this.настройкиToolStripMenuItem.Size = new System.Drawing.Size(309, 22);
-            this.настройкиToolStripMenuItem.Text = "Настройки";
-            this.настройкиToolStripMenuItem.Click += new System.EventHandler(this.настройкиToolStripMenuItem_Click);
+            this.ShowLastScreenShotMenuItem.Name = "ShowLastScreenShotMenuItem";
+            this.ShowLastScreenShotMenuItem.Size = new System.Drawing.Size(309, 22);
+            this.ShowLastScreenShotMenuItem.Text = "Показать последний скриншот";
+            this.ShowLastScreenShotMenuItem.Click += new System.EventHandler(this.ShowLastScreenShotClick);
             // 
-            // выходToolStripMenuItem
+            // SettingsMenuItem
             // 
-            this.выходToolStripMenuItem.Name = "выходToolStripMenuItem";
-            this.выходToolStripMenuItem.Size = new System.Drawing.Size(309, 22);
-            this.выходToolStripMenuItem.Text = "Выход";
-            this.выходToolStripMenuItem.Click += new System.EventHandler(this.выходToolStripMenuItem_Click);
+            this.SettingsMenuItem.Name = "SettingsMenuItem";
+            this.SettingsMenuItem.Size = new System.Drawing.Size(309, 22);
+            this.SettingsMenuItem.Text = "Настройки";
+            this.SettingsMenuItem.Click += new System.EventHandler(this.ShowSettingClick);
             // 
-            // получитьСсылкуНаПоследнийСкриншотToolStripMenuItem
+            // ExitMenuItem
             // 
-            this.получитьСсылкуНаПоследнийСкриншотToolStripMenuItem.Name = "получитьСсылкуНаПоследнийСкриншотToolStripMenuItem";
-            this.получитьСсылкуНаПоследнийСкриншотToolStripMenuItem.Size = new System.Drawing.Size(309, 22);
-            this.получитьСсылкуНаПоследнийСкриншотToolStripMenuItem.Text = "Получить ссылку на последний скриншот";
-            this.получитьСсылкуНаПоследнийСкриншотToolStripMenuItem.Click += new System.EventHandler(this.получитьСсылкуНаПоследнийСкриншотToolStripMenuItem_Click);
+            this.ExitMenuItem.Name = "ExitMenuItem";
+            this.ExitMenuItem.Size = new System.Drawing.Size(309, 22);
+            this.ExitMenuItem.Text = "Выход";
+            this.ExitMenuItem.Click += new System.EventHandler(this.ExitClick);
             // 
-            // qRкодНаСсылкуToolStripMenuItem
+            // GetUrlForLastShotMenuItem
             // 
-            this.qRкодНаСсылкуToolStripMenuItem.Name = "qRкодНаСсылкуToolStripMenuItem";
-            this.qRкодНаСсылкуToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
-            this.qRкодНаСсылкуToolStripMenuItem.Text = "QR-код на ссылку";
-            this.qRкодНаСсылкуToolStripMenuItem.Click += new System.EventHandler(this.qRкодНаСсылкуToolStripMenuItem_Click);
+            this.GetUrlForLastShotMenuItem.Name = "GetUrlForLastShotMenuItem";
+            this.GetUrlForLastShotMenuItem.Size = new System.Drawing.Size(309, 22);
+            this.GetUrlForLastShotMenuItem.Text = "Получить ссылку на последний скриншот";
+            this.GetUrlForLastShotMenuItem.Click += new System.EventHandler(this.getLastImageUrlToolStripMenuItem_Click);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(184, 91);
-            this.Controls.Add(this.showLastImgChBox);
-            this.Controls.Add(this.pictureBox);
-            this.Controls.Add(this.rectangleShotBtn);
-            this.Controls.Add(this.screenShotBtn);
-            this.Controls.Add(this.mainMenu);
+            this.Controls.Add(this.ShowLastShotImageCheckBox);
+            this.Controls.Add(this.LastScreenShotImageBox);
+            this.Controls.Add(this.ShotRectangleButton);
+            this.Controls.Add(this.ShotFullScreenButton);
+            this.Controls.Add(this.MainMenu);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MainMenuStrip = this.mainMenu;
+            this.MainMenuStrip = this.MainMenu;
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(200, 226);
             this.MinimumSize = new System.Drawing.Size(200, 119);
@@ -284,11 +283,11 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             this.SizeChanged += new System.EventHandler(this.MainForm_SizeChanged);
             this.Move += new System.EventHandler(this.MainForm_Move);
-            this.mainMenu.ResumeLayout(false);
-            this.mainMenu.PerformLayout();
-            this.pictureContexMenuStip.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
-            this.notifyContexMenu.ResumeLayout(false);
+            this.MainMenu.ResumeLayout(false);
+            this.MainMenu.PerformLayout();
+            this.ImageContextMenu.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.LastScreenShotImageBox)).EndInit();
+            this.TrayContextMenu.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -297,28 +296,28 @@
         #endregion
 
         private System.Windows.Forms.Timer timer1;
-        private System.Windows.Forms.Button screenShotBtn;
-        private System.Windows.Forms.PictureBox pictureBox;
-        private System.Windows.Forms.Button rectangleShotBtn;
-        private System.Windows.Forms.MenuStrip mainMenu;
-        private System.Windows.Forms.ToolStripMenuItem функцииToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem помощьToolStripMenuItem;
-        private System.Windows.Forms.CheckBox showLastImgChBox;
-        private System.Windows.Forms.ContextMenuStrip pictureContexMenuStip;
-        private System.Windows.Forms.ToolStripMenuItem открытьВPaintToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem открытьToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem получитьСсылкуToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem копироватьToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem файлToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem изображениеToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem путьКФайлуToolStripMenuItem;
-        public System.Windows.Forms.NotifyIcon notifyIcon;
-        private System.Windows.Forms.ContextMenuStrip notifyContexMenu;
-        private System.Windows.Forms.ToolStripMenuItem выходToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem настройкиToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem показатьПоследнийСкриншотToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem получитьСсылкуНаПоследнийСкриншотToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem qRкодНаСсылкуToolStripMenuItem;
+        private System.Windows.Forms.Button ShotFullScreenButton;
+        private System.Windows.Forms.PictureBox LastScreenShotImageBox;
+        private System.Windows.Forms.Button ShotRectangleButton;
+        private System.Windows.Forms.MenuStrip MainMenu;
+        private System.Windows.Forms.ToolStripMenuItem SettingsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem HelpMenuItem;
+        private System.Windows.Forms.CheckBox ShowLastShotImageCheckBox;
+        private System.Windows.Forms.ContextMenuStrip ImageContextMenu;
+        private System.Windows.Forms.ToolStripMenuItem OpenInPaintMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem OpenWithWindowsViewerMenuIcon;
+        private System.Windows.Forms.ToolStripMenuItem GetUrlToImageMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem CopyDropDownMenu;
+        private System.Windows.Forms.ToolStripMenuItem CopyFileMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem CopyImageMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem CopyPathToImageMenuItem;
+        public System.Windows.Forms.NotifyIcon TrayIcon;
+        private System.Windows.Forms.ContextMenuStrip TrayContextMenu;
+        private System.Windows.Forms.ToolStripMenuItem ExitMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem SettingsMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ShowLastScreenShotMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem GetUrlForLastShotMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem GetQRCodeForLastShotMenuItem;
     }
 }
 

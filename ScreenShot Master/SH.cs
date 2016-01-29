@@ -46,6 +46,10 @@ namespace SreenShotClass
         public static string LastImageUrl { get; set; }
         public static string LastPath { get; set; }
 
+        public delegate void AfterShotEventHandler();
+
+        public AfterShotEventHandler AfterShot;
+
         public static  bool ScreenShotDoing { get; set; }
         /// <summary>
         /// Makes Fullscreen shot

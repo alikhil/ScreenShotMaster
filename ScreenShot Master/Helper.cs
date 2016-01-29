@@ -34,12 +34,16 @@ namespace ScreenShot_Master
     }
     static class Helper
     {
+        public static bool IsNotNullOrEmpty(this string s)
+        {
+            return !string.IsNullOrEmpty(s);
+        }
         public  const string IMGUR_API_KEY = "3d5907509d22a3130787a91bbb3c9189";
         public static ImageFormat ConvertStringToImageFormat(string img)
         {
             switch(img.ToLower())
             {
-                case "png" :
+                case AppConsts.PNG :
                     return ImageFormat.Png;
                 case "jpg" :
                 case "jpeg":
@@ -50,10 +54,10 @@ namespace ScreenShot_Master
                     return ImageFormat.Png;
             }
         }
-        public static void PostToImgur(Bitmap bitmap)
+        public static bool PostToImgur(Bitmap bitmap)
         {
             if (bitmap == null)
-                return;
+                return false;
             try
             {
                 MemoryStream memoryStream = new MemoryStream();
@@ -72,14 +76,15 @@ namespace ScreenShot_Master
                     XDocument xDocument = XDocument.Load(new MemoryStream(response));
 
                     string ans = (string)xDocument.Root.Element("original_image");
-                    MessageBox.Show("Изображение загружено  " + ans + ". Ссылка скопирована в буфер обмена", "ScreenShot Master", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                   
                     Clipboard.SetText(ans);
                     SH.LastImageUrl = ans;
+                    return true;
                 }
             }
-            catch (System.Exception ex)
+            catch
             {
-                MessageBox.Show("Не удалось загрузить изображение. Ошибка - " + ex.ToString(), "Ошибка!");
+                return false;
             }
 
 
@@ -130,4 +135,39 @@ namespace ScreenShot_Master
         }
     }
 
+    public static class AppConsts
+    {
+        public static string AppName = "ScreenShot Master";
+
+        public static string FullScreenShotModKey = "FullModKey";
+        public static string CutScreenShotModKey = "CutModKey";
+        public static string WindScreenShotModKey = "WindModKey";
+
+        public static string FullScreenShotKey = "FullKey";
+        public static string CutScreenShotKey = "CutKey";
+        public static string WindScreenShotKey = "WindKey";
+
+        public static string CopyLastImageUrlModKey = "CopyUrlModKey";
+        public static string CopyLastImageUrlKey = "CopyUrlKey";
+
+        public static string SaveFolderPath = "FolderPath";
+        public static string ImageFormat = "ImgFormat";
+
+        public static string OnNotifyDoubleClick = "On2ClickNotify";
+        public static string FormSize = "FormSize";
+        public static string DoOnClose = "DoOnClose";
+
+        public static string TopMost = "TopMost";
+        public static string HideInShot = "HideInShot";
+
+        public static string ShowNotifsInTray = "ShowNotifsInTray";
+        public static string CopyToClipboardAfterShot = "CopyToClipboardAfterShow";
+
+        public const string PNG = "png";
+
+        public const string MakeScreenShot = "MakeSS";
+        public const string Exit = "Exit";
+        public const string MakeSSAndUpload = "MakeSSAndUpload";
+
+    }
 }

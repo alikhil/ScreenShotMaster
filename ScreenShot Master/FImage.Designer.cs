@@ -37,7 +37,7 @@
             this.pictureBox.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox.Location = new System.Drawing.Point(1, 1);
-            this.pictureBox.Name = "pictureBox";
+            this.pictureBox.Name = "LastScreenShotImageBox";
             this.pictureBox.Size = new System.Drawing.Size(362, 297);
             this.pictureBox.TabIndex = 0;
             this.pictureBox.TabStop = false;

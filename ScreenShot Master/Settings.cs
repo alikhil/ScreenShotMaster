@@ -40,7 +40,7 @@ namespace ScreenShot_Master
         public static SH_Settings GetSH_Settings()
         {
 
-            return new SH_Settings(Dictionary["FolderPath"], Helper.ConvertStringToImageFormat(Dictionary["ImageFormat"]));
+            return new SH_Settings(Dictionary[AppConsts.SaveFolderPath], Helper.ConvertStringToImageFormat(Dictionary[AppConsts.ImageFormat]));
         }
         private static void SaveSettings(Dictionary<string, string> dic)
         {
@@ -144,10 +144,16 @@ namespace ScreenShot_Master
         public static string GetValue(string key)
         {
             Dictionary<string, string> dic = GetSettings();
-            if (!dic.ContainsKey(key)) throw new UnknownKeyException();
+            if (!dic.ContainsKey(key)) throw new Exception("Can not get value of key " + key);
             return dic[key];
         }
-        public static string GetValue(string key,string defaultValue)
+
+        public static bool GetValue(string key, bool defaultValue)
+        {
+            return Convert.ToBoolean(GetValue(key, defaultValue.ToString()));
+        }
+
+        public static string GetValue(string key, string defaultValue)
         {
             if (!KeyExist(key))
                 return defaultValue;
@@ -165,9 +171,5 @@ namespace ScreenShot_Master
             return null;
         }
 
-    }
-    public class UnknownKeyException : Exception
-    {
-        public string Message = "This key didn't exist in settings dictionary";
     }
 }

@@ -57,10 +57,6 @@ namespace SreenShotClass
 
         }
     }
-    public class InvalidFolderPathException:Exception
-    {
-        string Message = "Invalid Folder Path";
-    }
     public class Shot_Setting
     {
         public Size Size;
