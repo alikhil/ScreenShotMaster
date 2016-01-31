@@ -259,7 +259,7 @@ namespace ScreenShot_Master
 
         private void CopyToClipboardAfterShotCheckbox_CheckedChanged(object sender, EventArgs e)
         {
-
+            Settings.EditKey(AppConsts.CopyToClipboardAfterShot, CopyToClipboardAfterShotCheckbox.Checked.ToString());
         }
     }
 }

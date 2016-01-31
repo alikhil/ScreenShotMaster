@@ -8,9 +8,9 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("ScreenShot Master")]
 [assembly: AssemblyDescription("Удобное и простое приложение для создания скриншотов. По вопросам и предложениям обращаться по адресу alikhil@mail.ru")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("AKSoftLab")]
+[assembly: AssemblyCompany("a.khilazhev")]
 [assembly: AssemblyProduct("ScreenShot Master")]
-[assembly: AssemblyCopyright("Copyright ©  2015")]
+[assembly: AssemblyCopyright("Copyright ©  2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -32,5 +32,5 @@ using System.Runtime.InteropServices;
 // Можно задать все значения или принять номера сборки и редакции по умолчанию 
 // используя "*", как показано ниже:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("1.0.1.*")]
-[assembly: AssemblyFileVersion("1.0.1.*")]
+[assembly: AssemblyVersion("1.0.2")]
+[assembly: AssemblyFileVersion("1.0.2")]

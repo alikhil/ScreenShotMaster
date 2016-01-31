@@ -48,7 +48,7 @@ namespace SreenShotClass
 
         public delegate void AfterShotEventHandler();
 
-        public AfterShotEventHandler AfterShot;
+        public static AfterShotEventHandler AfterShot = new AfterShotEventHandler( ()=> { });
 
         public static  bool ScreenShotDoing { get; set; }
         /// <summary>
@@ -80,6 +80,8 @@ namespace SreenShotClass
             printscreen.Save(lpath, settings.ImageFormat);  //сохраняем картинку
             //MainForm.ActiveForm.Visible = true;
             ScreenShotDoing = false;
+            if (AfterShot != null)
+                AfterShot();
             LastImageUrl = null;
         }
         public static void ScreenShot(string filepath, ImageFormat imf, Size size, Point startPoint, Screen screen)

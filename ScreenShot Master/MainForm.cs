@@ -31,8 +31,25 @@ namespace ScreenShot_Master
             
             InitializeComponent();
             InitSettings();
+            SH.AfterShot += AfterScreenShot;
 
         }
+
+        private void AfterScreenShot()
+        {
+            if (Settings.GetValue(AppConsts.CopyToClipboardAfterShot, false))
+            {
+                try
+                {
+                    Clipboard.SetDataObject(SH.LastImage);
+                }
+                catch
+                {
+
+                }
+            }
+        }
+
         private void CheckUpdate()
         {
             string  link = "https://www.dropbox.com/s/s37r34pisokdbyb/version.xml?dl=1";

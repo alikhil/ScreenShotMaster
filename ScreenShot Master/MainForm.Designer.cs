@@ -146,21 +146,21 @@
             // CopyFileMenuItem
             // 
             this.CopyFileMenuItem.Name = "CopyFileMenuItem";
-            this.CopyFileMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.CopyFileMenuItem.Size = new System.Drawing.Size(150, 22);
             this.CopyFileMenuItem.Text = "Файл";
             this.CopyFileMenuItem.Click += new System.EventHandler(this.CopyImageFileToClipboard);
             // 
             // CopyImageMenuItem
             // 
             this.CopyImageMenuItem.Name = "CopyImageMenuItem";
-            this.CopyImageMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.CopyImageMenuItem.Size = new System.Drawing.Size(150, 22);
             this.CopyImageMenuItem.Text = "Изображение";
             this.CopyImageMenuItem.Click += new System.EventHandler(this.CopyImageToClipboardClick);
             // 
             // CopyPathToImageMenuItem
             // 
             this.CopyPathToImageMenuItem.Name = "CopyPathToImageMenuItem";
-            this.CopyPathToImageMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.CopyPathToImageMenuItem.Size = new System.Drawing.Size(150, 22);
             this.CopyPathToImageMenuItem.Text = "Путь к файлу";
             this.CopyPathToImageMenuItem.Click += new System.EventHandler(this.CopyImagePathToClipboardClick);
             // 
@@ -216,6 +216,7 @@
             // 
             this.TrayIcon.BalloonTipIcon = System.Windows.Forms.ToolTipIcon.Info;
             this.TrayIcon.ContextMenuStrip = this.TrayContextMenu;
+            this.TrayIcon.Icon = ((System.Drawing.Icon)(resources.GetObject("TrayIcon.Icon")));
             this.TrayIcon.Text = "ScreenShot Master";
             this.TrayIcon.Visible = true;
             this.TrayIcon.Click += new System.EventHandler(this.notifyIcon_Click);
